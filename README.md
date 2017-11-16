@@ -1,6 +1,9 @@
 <h2><a href="https://github.com/zzzprojects/findandreplace/releases/download/v1.7/fnr.exe">DOWNLOAD LATEST VERSION HERE</a></h2>
 <br />
 
+<h1>Project Description</h1>
+<p>An open source tool to find and replace text in multiple files.<br /><br /></p>
+
 <h1>Latest Releases</h1>
 <p>
 <strong>Version 1.7 has been released on May 29th, 2014!</strong><br />
@@ -9,8 +12,6 @@
 <br /><br /><strong>Version 1.5 has been released on Nov 6th, 2013</strong><br /><a href="https://findandreplace.codeplex.com/releases/view/113464">Read all about it here</a><br /><br />
 </p>
 
-<h1>Project Description</h1>
-<p>An open source tool to find and replace text in multiple files.<br /><br /></p>
 <h1>Features</h1>
 <ul>
 <li>Single file download - fnr.exe (181kb)</li>
