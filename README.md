@@ -2,7 +2,7 @@
 <br /><br />
 
 <p>
-<strong>Version 1.7 has been released on May 29th, 2014!</strong><br />
+<h2><strong>Version 1.7 has been released on May 29th, 2014!</strong></h2><br />
 <a href="https://findandreplace.codeplex.com/releases/view/122813">Read all about it here</a>
 <br /><br /><strong>IMPORTANT</strong>: If you use quotes or backslashes in command line find/replace text, please regenerate your commands before using fnr.exe in batch file. The logic for encoding quotes and slashes has changed in 1.7 to cover all common cases where users had issues.<br /><br /><strong>Version 1.6 has been released on Mar 24th, 2014</strong><br /><a href="https://findandreplace.codeplex.com/releases/view/119228">Read all about it here</a>
 <br /><br /><strong>Version 1.5 has been released on Nov 6th, 2013</strong><br /><a href="https://findandreplace.codeplex.com/releases/view/113464">Read all about it here</a><br /><br /><br />
