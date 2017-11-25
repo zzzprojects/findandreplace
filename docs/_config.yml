@@ -1,8 +1,5 @@
 highlighter: rouge
 gems:
-  - jekyll-sitemap
-  - jekyll-redirect-from
-ga: "UA-55584370-8"
 defaults:
   -
     scope:

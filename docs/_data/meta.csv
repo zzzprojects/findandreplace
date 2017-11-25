@@ -5,9 +5,13 @@ download,Download,Download,,Download,,no,full-h1
 contact-us,Contact Us,Contact Us,,Contact Us,,no,full-h1
 tutorials,Tutorials,Tutorials,,Tutorials,,,container-h1
 overview,Overview,Overview,,Overview,,,
-requirements,Requirements,Requirements,,Requirements,,,
 installing,Installing,Installing,,Installing,,,
-upgrading,Upgrading,Upgrading,,Upgrading,,,
-api,API,API,,API,,,
+basic-usage,Basic Usage,Basic Usage,,Basic Usage,,,
+command-line,Command Line,Command Line,,Command Line,,,
+flags,Flags,Flags,,Flags,,,
+regular-expressions,Regular Expressions,Regular Expressions,,Regular Expressions,,,
+detect-encoding,Detect Encoding,Detect Encoding,,Detect Encoding,,,
+error-levels,Error Levels,Error Levels,,Error Levels,,,
+special-characters,Special Characters,Special Characters,,Special Characters,,,
 faq,FAQ,FAQ,,FAQ,,,
 problems,Problems,Problems,,Problems,,,

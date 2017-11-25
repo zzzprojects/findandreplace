@@ -23,12 +23,7 @@ Contact us directly:
 - If your message contains private information
 
 ## I think I've found a bug! What should I do?
-The best way to report an issue is using our [Issues Tracker](https://github.com/zzzprojects/EntityFramework.DynamicFilters/issues)
-
-Make sure to include:
-- Entity Framework Version
-- Entity Framework Dynamic Filters Version
-- Database Provider
+The best way to report an issue is using our [Issues Tracker](https://github.com/zzzprojects/findandreplace/issues)
 
 Contact us directly:
 
@@ -37,7 +32,7 @@ Contact us directly:
 - If your message contains private information
 
 ## I think I've found a new feature! What should I do?
-The best way to request a new feature is using our [Issues Tracker](https://github.com/zzzprojects/EntityFramework.DynamicFilters/issues)
+The best way to request a new feature is using our [Issues Tracker](https://github.com/zzzprojects/findandreplace/issues)
 
 Contact us directly:
 
@@ -60,9 +55,7 @@ Just contact us back again, and we will make sure we don't miss it again!
 					<h3>Sales</h3>
 					<a href="mailto:sales@zzzprojects.com">sales@zzzprojects.com</a>
 					<h3>Issues & Features</h3>
-					<a href="https://github.com/zzzprojects/EntityFramework-Extensions/issues" target="_blank">Issues Tracker</a>
-					<h3>Stack Overflow</h3>
-					<a href="https://stackoverflow.com/questions/tagged/entity-framework-extensions" target="_blank">Stack Overflow</a>
+					<a href="https://github.com/zzzprojects/findandreplace/issues" target="_blank">Issues Tracker</a>
 				</div>
 			</div>
 			<br /><br />
