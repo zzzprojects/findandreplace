@@ -10,7 +10,7 @@ permalink: command-line
 
 ### Example
 
-Let's try to replace "license" with "agreement" by using the command line, so simply copy the command line text created by FNR.
+Let's try to replace "license" with "agreement" by using the command line, so just copy the command line text created by FNR.
 
 {% include template-example.html%} 
 {% highlight csharp %}

@@ -10,26 +10,26 @@ Find and Replace (FNR) uses two approaches two detect file encoding:
 
  - If Bom Detection fails it uses Microsoft's MLang library using approach described [here](http://www.codeproject.com/Articles/17201/Detect-Encoding-for-In-and-Outgoing-Text)
 
-### Why Detection Fail?
+## Why Detection Fail?
 
-In some very rare cases the detection may fail or may report a false positive. 
+In some rare cases, the detection may fail or may report a false positive. 
 
 - The reason for it failing is that detecting correct file encoding 100% of the time is impossible. 
 - MLang uses heuristics to go through file content and give its best guess on encoding. 
-- Usually its guess is correct 99%+ of the time. 
+- Usually, its guess is correct 99%+ of the time. 
 - The only sure way to load a file with correct encoding is to know it upfront and pass it in.
 
-### Workaorund 
+## Workaround 
 
-If you have a case where encoding detection fails for a specific file, you will get error message "Could not detect file encoding." for that file. To get around this error there are several approaches:
+If you have a case where encoding detection fails for a specific file, you will get error message "Could not detect file encoding." for that file. To get around this error, there are several approaches:
 
-#### Save as Unicode Encoding.
+### Save as Unicode Encoding.
 
  - You can open the problematic file in Notepad and save it using Unicode encoding. 
  - This will add a BOM header to the file so it will be easily detected by KlerkSoft Bom Detector
 
 
-#### Use Enconding Flags
+### Use Enconding Flags
 
  - Use **--defaultEncodingIfNotDetected** or **--alwaysUseEncoding** to bypass automatic detection. See details for these flags in the [Flags](/flags).
 

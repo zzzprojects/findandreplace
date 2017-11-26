@@ -9,7 +9,7 @@ permalink: overview
 Find and Replace has;
 
 - Simple UI to make sure that find/replace works. 
-- Command line to run find/replace using batch file.
+- Command line to run find/replace using a batch file.
 
 
 ## Features?
