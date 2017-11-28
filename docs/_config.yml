@@ -1,4 +1,5 @@
 highlighter: rouge
+ga: "UA-109631523-1"
 gems:
 defaults:
   -
