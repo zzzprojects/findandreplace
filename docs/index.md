@@ -22,7 +22,7 @@ permalink: index
 							<a class="btn btn-xl btn-z wow zoomIn" role="button" href="{{ site.github.url }}/download"
 									onclick="ga('send', 'event', { eventAction: 'download'});">
 								<i class="fa fa-cloud-download" aria-hidden="true"></i>
-								NuGet Download
+								Download
 							<i class="fa fa-angle-right"></i>
 							</a>
 						</div>
