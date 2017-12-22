@@ -1,0 +1,16 @@
+ILMerge version 2.12.803.0
+Copyright (C) Microsoft Corporation 2004-2006. All rights reserved.
+ILMerge /log:log.txt /targetplatform:4 /out:fnr2.exe fnr.exe FindAndReplace.dll CommandLine.dll EncodingTools.dll 
+Set platform to '4', using directory 'C:\Windows\Microsoft.NET\Framework64\v2.0.50727\..\v4.0.30319' for mscorlib.dll
+Running on Microsoft (R) .NET Framework v2.0.50727
+mscorlib.dll version = 2.0.0.0
+The list of input assemblies is:
+	fnr.exe
+	FindAndReplace.dll
+	CommandLine.dll
+	EncodingTools.dll
+Could not find the file 'fnr.exe'.
+An exception occurred during merging:
+ILMerge.Merge: Could not find the file 'fnr.exe'.
+   at ILMerging.ILMerge.Merge()
+   at ILMerging.ILMerge.Main(String[] args)

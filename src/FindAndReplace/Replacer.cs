@@ -31,8 +31,8 @@ namespace FindAndReplace
 		public string FileMask { get; set; }
 		public string ExcludeFileMask { get; set; }
 
-
-		public string FindText { get; set; }
+	    public string ExcludeDir { get; set; }
+        public string FindText { get; set; }
 		public bool IsCaseSensitive { get; set; }
 		public bool FindTextHasRegEx { get; set; }
 		public bool SkipBinaryFileDetection { get; set; }
@@ -72,7 +72,7 @@ namespace FindAndReplace
 			Status status = Status.Processing;
 
 			var startTime = DateTime.Now;
-			string[] filesInDirectory = Utils.GetFilesInDirectory(Dir, FileMask, IncludeSubDirectories, ExcludeFileMask);
+			string[] filesInDirectory = Utils.GetFilesInDirectory(Dir, FileMask, IncludeSubDirectories, ExcludeFileMask, ExcludeDir);
 
 			var resultItems = new List<ReplaceResultItem>();
 			var stats = new Stats();
@@ -254,7 +254,7 @@ namespace FindAndReplace
 
 		public string GenCommandLine(bool showEncoding)
 		{
-			return CommandLineUtils.GenerateCommandLine(Dir, FileMask, ExcludeFileMask, IncludeSubDirectories, IsCaseSensitive,
+			return CommandLineUtils.GenerateCommandLine(Dir, FileMask, ExcludeFileMask, ExcludeDir, IncludeSubDirectories, IsCaseSensitive,
 														FindTextHasRegEx, SkipBinaryFileDetection, showEncoding,
 														IncludeFilesWithoutMatches, UseEscapeChars, AlwaysUseEncoding, FindText,
 														ReplaceText);

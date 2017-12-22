@@ -95,8 +95,9 @@ namespace FindAndReplace.App
 			data.ReplaceText = CleanRichBoxText(txtReplace.Text);
 			data.UseEscapeChars = chkUseEscapeChars.Checked;
 			data.Encoding = cmbEncoding.Text;
+		    data.ExcludeDir = txtExcludeDir.Text;
 
-			data.SaveToRegistry();
+            data.SaveToRegistry();
 
 			_lastOperationFormData = data;
 		}
@@ -885,8 +886,9 @@ namespace FindAndReplace.App
 			txtDir.Text = data.Dir;
 			chkIncludeSubDirectories.Checked = data.IncludeSubDirectories;
 			txtFileMask.Text = data.FileMask;
-			txtExcludeFileMask.Text = data.ExcludeFileMask;
-			txtFind.Text = data.FindText;
+            txtExcludeFileMask.Text = data.ExcludeFileMask;
+		    txtExcludeDir.Text = data.ExcludeDir;
+            txtFind.Text = data.FindText;
 			chkIsCaseSensitive.Checked = data.IsCaseSensitive;
 			chkIsRegEx.Checked = data.IsRegEx;
 			chkSkipBinaryFileDetection.Checked = data.SkipBinaryFileDetection;
@@ -988,7 +990,9 @@ namespace FindAndReplace.App
 			finder.SkipBinaryFileDetection = chkSkipBinaryFileDetection.Checked;
 			finder.IncludeFilesWithoutMatches = chkIncludeFilesWithoutMatches.Checked;
 			finder.ExcludeFileMask = txtExcludeFileMask.Text;
-			finder.UseEscapeChars = chkUseEscapeChars.Checked;
+		    finder.ExcludeDir = txtExcludeDir.Text;
+
+            finder.UseEscapeChars = chkUseEscapeChars.Checked;
 
 			if (cmbEncoding.SelectedIndex > 0)
 				finder.AlwaysUseEncoding = Utils.GetEncodingByName(cmbEncoding.Text);
@@ -1013,8 +1017,8 @@ namespace FindAndReplace.App
 
 			replacer.FileMask = txtFileMask.Text;
 			replacer.ExcludeFileMask = txtExcludeFileMask.Text;
-
-			replacer.FindText = CleanRichBoxText(txtFind.Text);
+		    replacer.ExcludeDir = txtExcludeDir.Text;
+            replacer.FindText = CleanRichBoxText(txtFind.Text);
 			replacer.IsCaseSensitive = chkIsCaseSensitive.Checked;
 			replacer.FindTextHasRegEx = chkIsRegEx.Checked;
 			replacer.SkipBinaryFileDetection = chkSkipBinaryFileDetection.Checked;
@@ -1027,6 +1031,26 @@ namespace FindAndReplace.App
 
 			return replacer;
 		}
-	}
+
+        private void chkIncludeSubDirectories_CheckedChanged(object sender, EventArgs e)
+        {
+            txtExcludeDir.Enabled = chkIncludeSubDirectories.Checked;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Process.Start("http://www.zzzprojects.com/");
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("http://www.zzzprojects.com/");
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Process.Start("http://www.zzzprojects.com/contribute");
+        }
+    }
 }
  

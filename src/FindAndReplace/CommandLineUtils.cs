@@ -98,7 +98,8 @@ namespace FindAndReplace
 												string dir,
 												string fileMask,
 												string excludeFileMask,
-												bool includeSubDirectories,
+                                                string excludeDir,
+                                                bool includeSubDirectories,
 												bool isCaseSensitive,
 												bool isRegEx,
 												bool skipBinaryFileDetection,
@@ -111,13 +112,16 @@ namespace FindAndReplace
 		{
 			return
 				String.Format(
-					"--cl --dir \"{0}\" --fileMask \"{1}\"{2}{3}{4}{5}{6}{7}{8}{9}{10} --find \"{11}\" {12}",
+                    "--cl --dir \"{0}\" --fileMask \"{1}\"{2}{3}{4}{5}{6}{7}{8}{9}{10}{11} --find \"{12}\" {13}",
 					dir.TrimEnd('\\'),
 					fileMask,
 					String.IsNullOrEmpty(excludeFileMask)
 						? ""
 						: String.Format(" --excludeFileMask \"{0}\"", CommandLineUtils.EncodeText(excludeFileMask)),
-					includeSubDirectories ? " --includeSubDirectories" : "",
+                    String.IsNullOrEmpty(excludeDir)
+					    ? ""
+					    : String.Format(" --ExcludeDir \"{0}\"", CommandLineUtils.EncodeText(excludeDir)),
+                    includeSubDirectories ? " --includeSubDirectories" : "",
 					isCaseSensitive ? " --caseSensitive" : "",
 					isRegEx ? " --useRegEx" : "",
 					skipBinaryFileDetection ? " --skipBinaryFileDetection" : "",

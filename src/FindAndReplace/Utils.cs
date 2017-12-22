@@ -25,7 +25,7 @@ namespace FindAndReplace
 			return options;
 		}
 
-		public static string[] GetFilesInDirectory(string dir, string fileMask, bool includeSubDirectories, string excludeMask)
+		public static string[] GetFilesInDirectory(string dir, string fileMask, bool includeSubDirectories, string excludeMask, string excludeDir)
 		{
 			SearchOption searchOption = includeSubDirectories ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
 
@@ -36,7 +36,34 @@ namespace FindAndReplace
 				filesInDirectory.AddRange(Directory.GetFiles(dir, mask.Trim(), searchOption));
 			}
 
-			filesInDirectory = filesInDirectory.Distinct().ToList();
+		    if (includeSubDirectories &  !String.IsNullOrEmpty(excludeDir) )
+            { 
+                foreach (var path in filesInDirectory.ToList())
+                {
+                    foreach (var exclude in excludeDir.Split(','))
+                    {
+                        if (path.LastIndexOf('\\') != -1)
+                        {
+                             
+
+                            if (path.Substring(dir.Length - 1,( path.LastIndexOf('\\') +1)  - (dir.Length)).Contains(exclude.Trim()))
+                            {
+                                filesInDirectory.Remove(path);
+                            }
+                        }
+                        else
+                        { 
+
+                            if (path.Substring(dir.Length - 1, path.Length - (dir.Length)).Contains(exclude.Trim()))
+                            {
+                                filesInDirectory.Remove(path);
+                            }
+                        }
+                    }
+                }
+		    }
+
+            filesInDirectory = filesInDirectory.Distinct().ToList();
 
 			if (!String.IsNullOrEmpty(excludeMask))
 			{
@@ -52,8 +79,9 @@ namespace FindAndReplace
 						string fileName = Path.GetFileName(filePath);
 						if (fileName == null) //Somehow it can be null. So add a check
 							continue;
+					    fileName = filePath;
 
-						if (!Regex.IsMatch(fileName, excludeFileMaskRegExPattern))
+                        if (!Regex.IsMatch(fileName, excludeFileMaskRegExPattern))
 							tempFilesInDirectory.Add(filePath);
 					}
 

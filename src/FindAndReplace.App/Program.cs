@@ -185,8 +185,9 @@ namespace FindAndReplace.App
 					finder.IncludeSubDirectories = _options.IncludeSubDirectories;
 					finder.FileMask = _options.FileMask;
 					finder.ExcludeFileMask = _options.ExcludeFileMask;
+				    finder.ExcludeDir = _options.ExcludeDir;
 
-					finder.FindText = CommandLineUtils.DecodeText(_options.FindText, false, hasRegEx, _options.UseEscapeChars);
+                    finder.FindText = CommandLineUtils.DecodeText(_options.FindText, false, hasRegEx, _options.UseEscapeChars);
 					finder.IsCaseSensitive = _options.IsCaseSensitive;
 					finder.FindTextHasRegEx = hasRegEx;
 					finder.SkipBinaryFileDetection = _options.SkipBinaryFileDetection;
@@ -216,8 +217,9 @@ namespace FindAndReplace.App
 
 					replacer.FileMask = _options.FileMask;
 					replacer.ExcludeFileMask = _options.ExcludeFileMask;
+				    replacer.ExcludeDir = _options.ExcludeDir;
 
-					replacer.FindText = CommandLineUtils.DecodeText(_options.FindText, false, hasRegEx, _options.UseEscapeChars);
+                    replacer.FindText = CommandLineUtils.DecodeText(_options.FindText, false, hasRegEx, _options.UseEscapeChars);
 					replacer.IsCaseSensitive = _options.IsCaseSensitive;
 					replacer.FindTextHasRegEx = _options.IsFindTextHasRegEx;
 					replacer.SkipBinaryFileDetection = _options.SkipBinaryFileDetection;

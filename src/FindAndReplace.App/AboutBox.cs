@@ -17,12 +17,13 @@ namespace FindAndReplace.App
 			InitializeComponent();
 			this.Text = String.Format("About {0}", AssemblyTitle);
 			this.lblProductName.Text = AssemblyProduct;
-			this.lnkProduct.Text = "http://findandreplace.codeplex.com";
+			this.lnkProduct.Text = "http://findandreplace.io/";
 		
 			this.lblVersion.Text = String.Format("Version {0}", AssemblyVersion);
 			this.lblCopyright.Text = AssemblyCopyright;
 			this.lnkCompany.Text = AssemblyCompany;
-		}
+		    this.uiSupportedBy.Text = "ZZZ Projects";
+        }
 
 		#region Assembly Attribute Accessors
 
@@ -106,12 +107,17 @@ namespace FindAndReplace.App
 
 		private void lnkProduct_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			Process.Start("http://findandreplace.codeplex.com");
+			Process.Start("http://findandreplace.io/");
 		}
 
 		private void lnkCompany_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			Process.Start("http://www.entechsolutions.com");
+			Process.Start("http://findandreplace.io/");
 		}
-	}
+
+        private void uiSupportedBy_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("http://www.zzzprojects.com/");
+        }
+    }
 }

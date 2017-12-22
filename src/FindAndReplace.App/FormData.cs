@@ -11,7 +11,8 @@ namespace FindAndReplace.App
 		public bool IncludeSubDirectories { get; set; }
 		public string FileMask { get; set; }
 		public string ExcludeFileMask { get; set; }
-		public string FindText { get; set; }
+	    public string ExcludeDir { get; set; }
+        public string FindText { get; set; }
 		public bool IsCaseSensitive { get; set; }
 		public bool IsRegEx { get; set; }
 		public bool SkipBinaryFileDetection { get; set; }
@@ -46,7 +47,8 @@ namespace FindAndReplace.App
 			SaveValueToRegistry("IncludeSubDirectories", IncludeSubDirectories.ToString());
 			SaveValueToRegistry("FileMask", FileMask);
 			SaveValueToRegistry("ExcludeFileMask", ExcludeFileMask);
-			SaveValueToRegistry("FindText", FindText);
+		    SaveValueToRegistry("ExcludeDir", ExcludeDir);
+            SaveValueToRegistry("FindText", FindText);
 			SaveValueToRegistry("IsCaseSensitive", IsCaseSensitive.ToString());
 			SaveValueToRegistry("IsRegEx", IsRegEx.ToString());
 			SaveValueToRegistry("SkipBinaryFileDetection", SkipBinaryFileDetection.ToString());
@@ -70,7 +72,8 @@ namespace FindAndReplace.App
 			IncludeSubDirectories = GetValueFromRegistry("IncludeSubDirectories") == "True";
 			FileMask = GetValueFromRegistry("Filemask");
 			ExcludeFileMask = GetValueFromRegistry("ExcludeFileMask");
-			FindText = GetValueFromRegistry("FindText");
+		    ExcludeDir = GetValueFromRegistry("ExcludeDir");
+            FindText = GetValueFromRegistry("FindText");
 			IsCaseSensitive = GetValueFromRegistry("IsCaseSensitive") == "True";
 			IsRegEx = GetValueFromRegistry("IsRegEx") == "True";
 			SkipBinaryFileDetection = GetValueFromRegistry("SkipBinaryFileDetection") == "True";
