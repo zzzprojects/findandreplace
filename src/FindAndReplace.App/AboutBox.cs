@@ -112,7 +112,7 @@ namespace FindAndReplace.App
 
 		private void lnkCompany_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			Process.Start("http://findandreplace.io/");
+			Process.Start("http://www.entechsolutions.com");
 		}
 
         private void uiSupportedBy_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
