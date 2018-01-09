@@ -1,4 +1,4 @@
-<h2><a href="https://github.com/zzzprojects/findandreplace/releases/download/v1.7/fnr.exe">DOWNLOAD LATEST VERSION HERE</a></h2>
+<h2><a href="http://findandreplace.io/download">DOWNLOAD LATEST VERSION HERE</a></h2>
 <br />
 
 <h1>Project Description</h1>
