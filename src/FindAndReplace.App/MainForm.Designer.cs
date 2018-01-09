@@ -223,7 +223,7 @@ namespace FindAndReplace.App
             this.txtCommandLine.Location = new System.Drawing.Point(80, 11);
             this.txtCommandLine.Multiline = true;
             this.txtCommandLine.Name = "txtCommandLine";
-            this.txtCommandLine.Size = new System.Drawing.Size(930, 74);
+            this.txtCommandLine.Size = new System.Drawing.Size(916, 74);
             this.txtCommandLine.TabIndex = 15;
             this.txtCommandLine.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCommandLine_KeyDown);
             // 
@@ -242,7 +242,7 @@ namespace FindAndReplace.App
             this.pnlCommandLine.Controls.Add(this.txtCommandLine);
             this.pnlCommandLine.Location = new System.Drawing.Point(3, 417);
             this.pnlCommandLine.Name = "pnlCommandLine";
-            this.pnlCommandLine.Size = new System.Drawing.Size(1012, 100);
+            this.pnlCommandLine.Size = new System.Drawing.Size(996, 100);
             this.pnlCommandLine.TabIndex = 21;
             this.pnlCommandLine.Visible = false;
             // 
@@ -257,7 +257,7 @@ namespace FindAndReplace.App
             this.gvResults.ReadOnly = true;
             this.gvResults.RowHeadersVisible = false;
             this.gvResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvResults.Size = new System.Drawing.Size(930, 129);
+            this.gvResults.Size = new System.Drawing.Size(916, 129);
             this.gvResults.TabIndex = 18;
             this.gvResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvResults_CellClick);
             this.gvResults.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvResults_CellDoubleClick);
@@ -296,7 +296,7 @@ namespace FindAndReplace.App
             this.pnlGridResults.Controls.Add(this.gvResults);
             this.pnlGridResults.Location = new System.Drawing.Point(10, 418);
             this.pnlGridResults.Name = "pnlGridResults";
-            this.pnlGridResults.Size = new System.Drawing.Size(1013, 196);
+            this.pnlGridResults.Size = new System.Drawing.Size(989, 196);
             this.pnlGridResults.TabIndex = 22;
             this.pnlGridResults.Visible = false;
             // 
@@ -505,7 +505,7 @@ namespace FindAndReplace.App
             this.helpToolStripMenuItem});
             this.mnuMain.Location = new System.Drawing.Point(0, 0);
             this.mnuMain.Name = "mnuMain";
-            this.mnuMain.Size = new System.Drawing.Size(680, 24);
+            this.mnuMain.Size = new System.Drawing.Size(677, 24);
             this.mnuMain.TabIndex = 29;
             this.mnuMain.Text = "menuStrip1";
             // 
@@ -605,7 +605,7 @@ namespace FindAndReplace.App
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
-            this.ClientSize = new System.Drawing.Size(680, 517);
+            this.ClientSize = new System.Drawing.Size(677, 517);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.linkLabel1);
