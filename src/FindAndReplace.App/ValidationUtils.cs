@@ -29,13 +29,26 @@ namespace FindAndReplace.App
 				return result;
 			}
 
-			Regex dirRegex = new Regex(@"^(([a-zA-Z]:)|(\\{2}[^\/\\:*?<>|]+))(\\([^\/\\:*?<>|]*))*(\\)?$");
+		Regex dirRegex  = new Regex(@"^(([a-zA-Z]:)|(\\{2}[^\/\\:*?<>|]+)) (\\([^\/\\:*?<>|]*))*(\\)?$");
+		    Regex dirRegexNotRooted = new Regex(@"(\\([^\/\\:*?<>|]*))*(\\)?$");
+		    if (Path.IsPathRooted(dir))
+		    {
 			if (!dirRegex.IsMatch(dir))
 			{
-				result.IsSuccess = false;
-				result.ErrorMessage = "Dir is invalid";
-				return result;
+			    result.IsSuccess = false;
+			    result.ErrorMessage = "Dir is invalid";
+			    return result;
 			}
+		    }
+		    else
+		    {
+			if (!dirRegexNotRooted.IsMatch(dir))
+			{
+			    result.IsSuccess = false;
+			    result.ErrorMessage = "Dir is invalid";
+			    return result;
+			}
+		    }
 
 			if (!Directory.Exists(dir))
 			{
