@@ -15,7 +15,7 @@ namespace FindAndReplace.App
 
 	public partial class MainForm : Form
 	{
-		public const int ExtraWidthWhenResults = 350;
+		public const int ExtraWidthWhenResults = 335;
 
 		private Finder _finder;
 		private Replacer _replacer;

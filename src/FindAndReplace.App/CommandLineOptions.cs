@@ -41,7 +41,7 @@ namespace FindAndReplace.App
 		[Option("excludeFileMask", HelpText = "Exclude file mask.")]
 		public string ExcludeFileMask { get; set; }
 
-	    [Option("excludeDir", HelpText = "Exclude file mask.")]
+	    [Option("excludeDir", HelpText = "Exclude Dir, not first.")]
 	    public string ExcludeDir { get; set; }
 
         [Option("skipBinaryFileDetection", HelpText = "Ignore detection of binary files.")]
