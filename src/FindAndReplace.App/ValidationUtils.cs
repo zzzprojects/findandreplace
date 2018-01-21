@@ -18,49 +18,49 @@ namespace FindAndReplace.App
 
 	public static class ValidationUtils
 	{
-		public static ValidationResult IsDirValid(string dir, string itemName)
-		{
-			var result = new ValidationResult() {IsSuccess = true, FieldName = itemName};
+	    public static ValidationResult IsDirValid(string dir, string itemName)
+	    {
+	        var result = new ValidationResult() {IsSuccess = true, FieldName = itemName};
 
-			if (dir.Trim() == "")
-			{
-				result.IsSuccess = false;
-				result.ErrorMessage = "Dir is required";
-				return result;
-			}
+	        if (dir.Trim() == "")
+	        {
+	            result.IsSuccess = false;
+	            result.ErrorMessage = "Dir is required";
+	            return result;
+	        }
 
-		Regex dirRegex  = new Regex(@"^(([a-zA-Z]:)|(\\{2}[^\/\\:*?<>|]+)) (\\([^\/\\:*?<>|]*))*(\\)?$");
-		    Regex dirRegexNotRooted = new Regex(@"(\\([^\/\\:*?<>|]*))*(\\)?$");
-		    if (Path.IsPathRooted(dir))
-		    {
-			if (!dirRegex.IsMatch(dir))
-			{
-			    result.IsSuccess = false;
-			    result.ErrorMessage = "Dir is invalid";
-			    return result;
-			}
-		    }
-		    else
-		    {
-			if (!dirRegexNotRooted.IsMatch(dir))
-			{
-			    result.IsSuccess = false;
-			    result.ErrorMessage = "Dir is invalid";
-			    return result;
-			}
-		    }
+	        Regex dirRegex = new Regex(@"^(([a-zA-Z]:)|(\\{2}[^\/\\:*?<>|]+))(\\([^\/\\:*?<>|]*))*(\\)?$");
+	        Regex dirRegexNotRooted = new Regex(@"(\\([^\/\\:*?<>|]*))*(\\)?$");
+	        if (Path.IsPathRooted(dir))
+	        {
+	            if (!dirRegex.IsMatch(dir))
+	            {
+	                result.IsSuccess = false;
+	                result.ErrorMessage = "Dir is invalid";
+	                return result;
+	            }
+	        }
+	        else
+	        {
+	            if (!dirRegexNotRooted.IsMatch(dir))
+	            {
+	                result.IsSuccess = false;
+	                result.ErrorMessage = "Dir is invalid";
+	                return result;
+	            }
+	        }
 
-			if (!Directory.Exists(dir))
-			{
-				result.IsSuccess = false;
-				result.ErrorMessage = "Dir does not exist";
-				return result;
-			}
+	        if (!Directory.Exists(dir))
+	        {
+	            result.IsSuccess = false;
+	            result.ErrorMessage = "Dir does not exist";
+	            return result;
+	        }
 
-			return result;
-		}
+	        return result;
+	    }
 
-		public static ValidationResult IsNotEmpty(string text, string itemName)
+	    public static ValidationResult IsNotEmpty(string text, string itemName)
 		{
 			var result = new ValidationResult() {IsSuccess = true, FieldName = itemName};
 
