@@ -1,16 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindAndReplace.App", "FindAndReplace.App\FindAndReplace.App.csproj", "{128F4172-1975-4ABA-A8D8-4B55DC9AB481}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindAndReplace.Tests", "FindAndReplace.Tests\FindAndReplace.Tests.csproj", "{2517D7CF-7BBD-4CEA-AA10-87FFB6C6A0DC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindAndReplace", "FindAndReplace\FindAndReplace.csproj", "{4E35E2C7-099B-4356-9215-0DC77D156CFA}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{31C5AE12-0798-451C-924D-77936A64F3AE}"
-	ProjectSection(SolutionItems) = preProject
-		MakeOneExe.bat = MakeOneExe.bat
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncodingTools", "EncodingTools\EncodingTools.csproj", "{CA19D4DE-B232-491A-92BF-7BF3A2758694}"
 EndProject
@@ -80,5 +77,29 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ED5AA572-1A7B-41D8-AADE-319253AEB15B}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://zzzproject.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = FindAndReplace.App\\FindAndReplace.App.csproj
+		SccProjectName1 = FindAndReplace.App
+		SccLocalPath1 = FindAndReplace.App
+		SccProjectUniqueName2 = FindAndReplace.Tests\\FindAndReplace.Tests.csproj
+		SccProjectName2 = FindAndReplace.Tests
+		SccLocalPath2 = FindAndReplace.Tests
+		SccProjectUniqueName3 = FindAndReplace\\FindAndReplace.csproj
+		SccProjectName3 = FindAndReplace
+		SccLocalPath3 = FindAndReplace
+		SccProjectUniqueName4 = EncodingTools\\EncodingTools.csproj
+		SccProjectName4 = EncodingTools
+		SccLocalPath4 = EncodingTools
+		SccProjectUniqueName5 = FindAndReplace.Tests.CommandLine\\FindAndReplace.Tests.CommandLine.csproj
+		SccProjectName5 = FindAndReplace.Tests.CommandLine
+		SccLocalPath5 = FindAndReplace.Tests.CommandLine
 	EndGlobalSection
 EndGlobal
