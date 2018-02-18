@@ -9,11 +9,73 @@ using NUnit.Framework;
 namespace FindAndReplace.Tests
 {
     [TestFixture]
-    [Ignore]   
     //Class FileGetter is not used in workflows for now, since speed improvement causes
     //resource contention between opening files and iterating
     public class FileGetterTest : TestBase
     {
+
+        [SetUp]
+        public override void SetUp()
+        {
+            CreateTestDir();
+            CreateSpeedDir();
+
+            WriteFiles(100000);
+        }
+
+
+        [TearDown]
+        public override void TearDown()
+        {
+            DeleteTestDir();
+        }
+
+
+        private void WriteFiles(int fileSize)
+        {
+            string fileContent = GetFileContent(fileSize);
+
+            CreateTestFile(fileContent, Encoding.ASCII);
+            CreateTestFile(fileContent, Encoding.Unicode);
+            CreateTestFile(fileContent, Encoding.BigEndianUnicode);
+            CreateTestFile(fileContent, Encoding.UTF32);
+            CreateTestFile(fileContent, Encoding.UTF7);
+            CreateTestFile(fileContent, Encoding.UTF8);
+
+        } 
+
+        private void CreateTestFile(string fileContent, Encoding encoding)
+        {
+            string filePath = _speedDir + "\\" + encoding.EncodingName + ".txt";
+            File.WriteAllText(filePath, fileContent, encoding);
+        }
+
+
+        protected void CreateTestDir()
+        {
+           
+            _tempDir = Path.GetTempPath() + "FindAndReplaceTests";
+            Directory.CreateDirectory(_tempDir);
+        }
+
+
+        protected void DeleteTestDir()
+        {
+            var tempDir = Path.GetTempPath() + "FindAndReplaceTests";
+
+            Directory.Delete(tempDir, true);
+        }
+
+
+        protected void CreateSpeedDir()
+        {
+            _speedDir = _tempDir + "\\Speed";
+
+            if (Directory.Exists(_speedDir))
+                throw new InvalidOperationException("Dir '" + _speedDir + "' already exists.");
+
+            Directory.CreateDirectory(_speedDir);
+        }  
 
         [Test]
         public void RunAsync_UsingBlockingCollection_TryTake_Works()
@@ -87,12 +149,12 @@ namespace FindAndReplace.Tests
             var fileGetter = new FileGetter
             {
                 DirPath = _tempDir,
-                FileMasks = new List<string> { "test1.*" },
+                FileMasks = new List<string> { "Unicode*.*" },
                 SearchOption = SearchOption.AllDirectories
             };
 
             List<string> files = fileGetter.RunSync();
-            Assert.AreEqual(2, files.Count);
+            Assert.AreEqual(5, files.Count);
         }
 
         [Test]
@@ -101,12 +163,12 @@ namespace FindAndReplace.Tests
             var fileGetter = new FileGetter
             {
                 DirPath = _tempDir,
-                FileMasks = new List<string> { "test1.txt", "test2.*" },
+                FileMasks = new List<string> { "Unicode (UTF-7).txt", "US-ASCII.*" },
                 SearchOption = SearchOption.AllDirectories
             };
 
             List<string> files = fileGetter.RunSync();
-            Assert.AreEqual(4, files.Count);
+            Assert.AreEqual(2, files.Count);
         }
 
 
@@ -122,7 +184,7 @@ namespace FindAndReplace.Tests
             };
 
             List<string> files = fileGetter.RunSync();
-            Assert.AreEqual(1, files.Count);
+            Assert.AreEqual(0, files.Count);
         }
 
         [Test]
@@ -151,9 +213,9 @@ namespace FindAndReplace.Tests
             //CompareGetFilesSpeed("*.txt");
         }
 
-        private const string _getFilesSpeedDir =  "C:\\Temp\\FindAndReplaceTest\\Stable";
+        private  string _getFilesSpeedDir = Path.GetTempPath() + "\\FindAndReplaceTests";//"C:\\Temp\\FindAndReplaceTest\\Stable";
         //private const string _getFilesSpeedDir = "C:\\Code\\SpaBooker\\9_4";
-           
+
 
         private void CompareGetFilesSpeed(string fileMask)
         {

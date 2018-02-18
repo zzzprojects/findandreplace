@@ -7,21 +7,23 @@ using System.Threading;
 using System.Threading.Tasks;
 using NUnit.Framework;
 
-namespace FindAndReplace.Tests
+namespace FindAndReplace.Tests.DetectEncodingSpeedTest
 {
 	[TestFixture]
-	[Ignore]
 	public class DetectEncodingSpeedTest : TestBase
 	{
+	    private string speedDir = "";
 
-		[SetUp]
+        [SetUp]
 		public override void SetUp()
 		{
-			CreateTestDir();
+	 
+            CreateTestDir();
 			CreateSpeedDir();
 
 			WriteFiles(100000);
-		}
+             
+        }
 
 
 		[TearDown]
@@ -31,7 +33,48 @@ namespace FindAndReplace.Tests
 		}
 
 
-		private void WriteFiles(int fileSize)
+	    protected void CreateTestDir()
+	    {
+	        _tempDir = Path.GetTempPath() + "\\FindAndReplaceTests";
+	        Directory.CreateDirectory(_tempDir);
+	    }
+
+
+	    protected void DeleteTestDir()
+	    {
+	        var tempDir = Path.GetTempPath() + "\\FindAndReplaceTests";
+
+	        Directory.Delete(tempDir, true);
+	    }
+
+
+	    protected void CreateSpeedDir()
+	    {
+	        speedDir = "D:\\Temp\\FindAndReplaceTest2" + "\\Speed";
+
+	        if (Directory.Exists(speedDir))
+	          
+	        {
+	            speedDir = "D:\\Temp\\FindAndReplaceTest2" + "\\Speed";
+
+	            if (Directory.Exists(speedDir))
+	                Directory.Delete(speedDir, true);
+            }
+	        if (Directory.Exists(speedDir))
+	            throw new InvalidOperationException("Dir '" + speedDir + "' already exists.");
+
+            Directory.CreateDirectory(speedDir);
+	    }
+
+	    protected void DeleteSpeedDir()
+	    {
+	        speedDir = "D:\\Temp\\FindAndReplaceTest2" + "\\Speed";
+
+	        if (Directory.Exists(speedDir))
+	            Directory.Delete(speedDir, true);
+	    }
+
+        private void WriteFiles(int fileSize)
 		{
 			string fileContent = GetFileContent(fileSize);
 
@@ -46,53 +89,53 @@ namespace FindAndReplace.Tests
 
 		private void CreateTestFile(string fileContent, Encoding encoding)
 		{
-			string filePath = _speedDir + "\\" + encoding.EncodingName + ".txt";
+			string filePath = speedDir + "\\" + encoding.EncodingName + ".txt";
 			File.WriteAllText(filePath, fileContent, encoding);
 		}
 
 		[Test]
 		public void KlerkSoft_Bom_NewFiles()
 		{
-			RunTest(EncodingDetector.Options.KlerkSoftBom, _speedDir);
+			RunTest(EncodingDetector.Options.KlerkSoftBom, speedDir);
 		}
 
 
 		[Test]
 		public void KlerkSoft_Heuristics_NewFiles()
 		{
-			RunTest(EncodingDetector.Options.KlerkSoftHeuristics, _speedDir);
+			RunTest(EncodingDetector.Options.KlerkSoftHeuristics, speedDir);
 		}
 
 
 		[Test]
 		public void MLang_NewFiles()
 		{
-			RunTest(EncodingDetector.Options.MLang, _speedDir);
+			RunTest(EncodingDetector.Options.MLang, speedDir);
 		}
 
 		[Test]
 		public void KlerkSoft_Bom_Real_Dir()
 		{
-			RunTest(EncodingDetector.Options.KlerkSoftBom, Dir_StyleSalt);
+			RunTest(EncodingDetector.Options.KlerkSoftBom, speedDir);
 		}
 
 		[Test]
 		public void KlerkSoft_Bom_And_Heuristics_Real_Dir()
 		{
-			RunTest(EncodingDetector.Options.KlerkSoftBom | EncodingDetector.Options.KlerkSoftHeuristics, Dir_StyleSalt);
+			RunTest(EncodingDetector.Options.KlerkSoftBom | EncodingDetector.Options.KlerkSoftHeuristics, speedDir);
 		}
 
 
 		[Test]
 		public void MLang_Real_Dir()
 		{
-			RunTest(EncodingDetector.Options.MLang, Dir_StyleSalt);
+			RunTest(EncodingDetector.Options.MLang, speedDir);
 		}
 
 		[Test]
 		public void KlerkSoft_Bom_And_MLang_Real_Dir()
 		{
-			RunTest(EncodingDetector.Options.MLang, Dir_StyleSalt);
+			RunTest(EncodingDetector.Options.MLang, speedDir);
 		}
 
 
@@ -100,24 +143,37 @@ namespace FindAndReplace.Tests
 		[Test]
 		public void MLang_Real_Dir_MultiThreaded()
 		{
-			//http://msdn.microsoft.com/en-us/library/aa767865(v=vs.85).aspx
-			//http://www.dotnetframework.org/default.aspx/Dotnetfx_Vista_SP2/Dotnetfx_Vista_SP2/8@0@50727@4016/DEVDIV/depot/DevDiv/releases/whidbey/NetFxQFE/ndp/clr/src/BCL/System/Text/MLangCodePageEncoding@cs/1/MLangCodePageEncoding@cs
-			//http://tech.nitoyon.com/ja/blog/2012/03/07/detectinputcodepage-in-cs/
-			//http://code.logos.com/blog/c/
+		    string filePath = "D:\\Temp\\FindAndReplaceTest3";
 
-			//http://www.mobzystems.com/code/detecting-text-encoding
-			//Use Preamble instead of Klerksoft?
+            //http://msdn.microsoft.com/en-us/library/aa767865(v=vs.85).aspx
+            //http://www.dotnetframework.org/default.aspx/Dotnetfx_Vista_SP2/Dotnetfx_Vista_SP2/8@0@50727@4016/DEVDIV/depot/DevDiv/releases/whidbey/NetFxQFE/ndp/clr/src/BCL/System/Text/MLangCodePageEncoding@cs/1/MLangCodePageEncoding@cs
+            //http://tech.nitoyon.com/ja/blog/2012/03/07/detectinputcodepage-in-cs/
+            //http://code.logos.com/blog/c/
 
-			//http://www.codeproject.com/Articles/17201/Detect-Encoding-for-In-and-Outgoing-Text
-			//still the best
+            //http://www.mobzystems.com/code/detecting-text-encoding
+            //Use Preamble instead of Klerksoft?
 
-			//First time seems a lot slower then second time with single thread.  Like 30%
-			RunTestMLangMultiThreaded(Dir_StyleSalt, 1);
+            //http://www.codeproject.com/Articles/17201/Detect-Encoding-for-In-and-Outgoing-Text
+            //still the best
 
-			//http://bytes.com/topic/net/answers/49348-multithreading-concurrency-interop
-			//Interop junk
-			for (int numThreads = 1; numThreads < 3; numThreads++) //Environment.ProcessorCount
-				RunTestMLangMultiThreaded(Dir_StyleSalt, numThreads);
+            //First time seems a lot slower then second time with single thread.  Like 30%
+
+		    if (!Directory.Exists(filePath))
+		    {
+		        Directory.CreateDirectory(filePath);
+		        File.WriteAllText(filePath + "\\ASCII.txt", GetFileContent(1000), Encoding.ASCII);
+		        File.WriteAllText(filePath + "\\BigEndianUnicode.txt", GetFileContent(1000), Encoding.BigEndianUnicode);
+            }
+
+            RunTestMLangMultiThreaded(filePath, 1);
+
+	 
+
+
+            //http://bytes.com/topic/net/answers/49348-multithreading-concurrency-interop
+            //Interop junk
+            for (int numThreads = 1; numThreads < 3; numThreads++) //Environment.ProcessorCount
+				RunTestMLangMultiThreaded(filePath, numThreads);
 		}
 
 		private void RunTest(EncodingDetector.Options encDetectorOptions, string dir)
@@ -244,7 +300,8 @@ namespace FindAndReplace.Tests
 
 			stopWatch.Stop();
 
-			StopWatch.PrintCollection(stopWatch.Milliseconds);
+
+            StopWatch.PrintCollection(stopWatch.Milliseconds);
 			StopWatch.Collection.Clear();
 
 			_filesToDetectEncoding.Dispose();

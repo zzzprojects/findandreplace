@@ -21,8 +21,9 @@ namespace FindAndReplace.App
 		public string ReplaceText { get; set; }
 		public bool UseEscapeChars { get; set; }
 		public string Encoding { get; set; }
+	    public bool IsKeepModifiedDate { get; set; }
 
-		private static readonly string _versionIndependentRegKey;
+        private static readonly string _versionIndependentRegKey;
 
 		static FormData()
 		{
@@ -57,7 +58,8 @@ namespace FindAndReplace.App
 			SaveValueToRegistry("ReplaceText", ReplaceText);
 			SaveValueToRegistry("UseEscapeChars", UseEscapeChars.ToString());
 			SaveValueToRegistry("Encoding", Encoding);
-		}
+		    SaveValueToRegistry("IsKeepModifiedDate", IsKeepModifiedDate.ToString());
+        }
 
 		public bool IsEmpty()
 		{
@@ -82,7 +84,8 @@ namespace FindAndReplace.App
 			ReplaceText = GetValueFromRegistry("ReplaceText");
 			UseEscapeChars = GetValueFromRegistry("UseEscapeChars") == "True";
 			Encoding = GetValueFromRegistry("Encoding");
-		}
+		    IsKeepModifiedDate= GetValueFromRegistry("IsKeepModifiedDate") == "True";
+        }
 
 
 		private void SaveValueToRegistry(string name, string value)

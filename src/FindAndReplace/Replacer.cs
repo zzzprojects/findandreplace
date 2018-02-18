@@ -35,7 +35,8 @@ namespace FindAndReplace
         public string FindText { get; set; }
 		public bool IsCaseSensitive { get; set; }
 		public bool FindTextHasRegEx { get; set; }
-		public bool SkipBinaryFileDetection { get; set; }
+	    public bool IsKeepModifiedDate { get; set; }
+        public bool SkipBinaryFileDetection { get; set; }
 		public bool IncludeFilesWithoutMatches { get; set; }
 
 		public string ReplaceText { get; set; }
@@ -67,9 +68,9 @@ namespace FindAndReplace
 			Verify.Argument.IsNotEmpty(Dir, "Dir");
 			Verify.Argument.IsNotEmpty(FileMask, "FileMask");
 			Verify.Argument.IsNotEmpty(FindText, "FindText");
-			Verify.Argument.IsNotNull(ReplaceText, "ReplaceText");
-
-			Status status = Status.Processing;
+			Verify.Argument.IsNotNull(ReplaceText, "ReplaceText"); 
+            
+            Status status = Status.Processing;
 
 			var startTime = DateTime.Now;
 			string[] filesInDirectory = Utils.GetFilesInDirectory(Dir, FileMask, IncludeSubDirectories, ExcludeFileMask, ExcludeDir);
@@ -82,7 +83,7 @@ namespace FindAndReplace
 
 			foreach (string filePath in filesInDirectory)
 			{
-				var resultItem = ReplaceTextInFile(filePath);
+				var resultItem = ReplaceTextInFile(filePath, IsKeepModifiedDate);
 				stats.Files.Processed++;
 				stats.Matches.Found += resultItem.NumMatches;
 
@@ -137,7 +138,7 @@ namespace FindAndReplace
 		}
 
 
-		private ReplaceResultItem ReplaceTextInFile(string filePath)
+		private ReplaceResultItem ReplaceTextInFile(string filePath, bool IsKeepModifiedDate)
 		{
 			string fileContent = string.Empty;
 
@@ -192,7 +193,12 @@ namespace FindAndReplace
 
 			resultItem.FileEncoding = encoding;
 
-			using (var sr = new StreamReader(filePath, encoding))
+
+		 
+	
+
+
+            using (var sr = new StreamReader(filePath, encoding))
 			{
 				fileContent = sr.ReadToEnd();
 			}
@@ -212,14 +218,32 @@ namespace FindAndReplace
 
 				string newContent = Regex.Replace(fileContent, escapedFindText, UseEscapeChars ? Regex.Unescape(ReplaceText) : ReplaceText, regexOptions);
 
-				try
+			    DateTime dt = DateTime.Now;
+
+                try
 				{
-					using (var sw = new StreamWriter(filePath, false, encoding))
+				    if (IsKeepModifiedDate)
+				    {
+                        // Get the creation time of a well-known directory.
+				        dt = File.GetLastWriteTime(filePath);
+				    }
+
+
+
+                    using (var sw = new StreamWriter(filePath, false, encoding))
 					{
 						sw.Write(newContent);
 					}
+
+				    if (IsKeepModifiedDate)
+				    {
+                        // Take an action that will affect the write time.
+                        File.SetLastWriteTime(filePath, dt);
+				    } 
+
+
 				}
-				catch (Exception ex)
+                catch (Exception ex)
 				{
 					resultItem.IsSuccess = false;
 					resultItem.FailedToWrite = true;
@@ -257,7 +281,7 @@ namespace FindAndReplace
 			return CommandLineUtils.GenerateCommandLine(Dir, FileMask, ExcludeFileMask, ExcludeDir, IncludeSubDirectories, IsCaseSensitive,
 														FindTextHasRegEx, SkipBinaryFileDetection, showEncoding,
 														IncludeFilesWithoutMatches, UseEscapeChars, AlwaysUseEncoding, FindText,
-														ReplaceText);
+														ReplaceText, IsKeepModifiedDate);
 		}
 	}
 }

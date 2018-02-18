@@ -134,6 +134,7 @@ free program...";
 			Directory.CreateDirectory(_tempDir + "\\subDir");
 			File.Copy(_tempDir + "\\test1.txt", _tempDir + "\\subDir\\test1.txt", true);
 			File.Copy(_tempDir + "\\test2.txt", _tempDir + "\\subDir\\test2.txt", true);
+
 		}
 
 		protected void CreateTestDir()

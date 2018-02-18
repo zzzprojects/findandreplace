@@ -96,6 +96,7 @@ namespace FindAndReplace.App
 			data.UseEscapeChars = chkUseEscapeChars.Checked;
 			data.Encoding = cmbEncoding.Text;
 		    data.ExcludeDir = txtExcludeDir.Text;
+		    data.IsKeepModifiedDate = chkKeepModifiedDate.Checked;
 
             data.SaveToRegistry();
 
@@ -504,7 +505,8 @@ namespace FindAndReplace.App
 					{
 						string fileContent = string.Empty;
 
-						using (var sr = new StreamReader(replaceResultItem.FilePath, replaceResultItem.FileEncoding))
+
+                        using (var sr = new StreamReader(replaceResultItem.FilePath, replaceResultItem.FileEncoding))
 						{
 							fileContent = sr.ReadToEnd();
 						}
@@ -528,7 +530,7 @@ namespace FindAndReplace.App
 
 				lblStatus.Text = "Processing " + stats.Files.Processed + " of " + stats.Files.Total + " files.  Last file: " +
 				                 replaceResultItem.FileRelativePath;
-				;
+			 
 
 				ShowStats(stats, true);
 			}
@@ -896,8 +898,10 @@ namespace FindAndReplace.App
 			chkShowEncoding.Checked = data.ShowEncoding;
 			txtReplace.Text = data.ReplaceText;
 			chkUseEscapeChars.Checked = data.UseEscapeChars;
+		    chkKeepModifiedDate.Checked = data.IsKeepModifiedDate;
 
-			if (!string.IsNullOrEmpty(data.Encoding))
+
+            if (!string.IsNullOrEmpty(data.Encoding))
 				cmbEncoding.SelectedIndex = cmbEncoding.Items.IndexOf(data.Encoding);
 		}
 
@@ -1025,8 +1029,10 @@ namespace FindAndReplace.App
 			replacer.IncludeFilesWithoutMatches = chkIncludeFilesWithoutMatches.Checked;
 			replacer.ReplaceText =  CleanRichBoxText(txtReplace.Text);
 			replacer.UseEscapeChars = chkUseEscapeChars.Checked;
+		    replacer.IsKeepModifiedDate = chkKeepModifiedDate.Checked;
 
-			if (cmbEncoding.SelectedIndex > 0)
+
+            if (cmbEncoding.SelectedIndex > 0)
 				replacer.AlwaysUseEncoding = Utils.GetEncodingByName(cmbEncoding.Text);
 
 			return replacer;

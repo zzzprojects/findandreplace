@@ -87,6 +87,7 @@ namespace FindAndReplace.App
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.chkKeepModifiedDate = new System.Windows.Forms.CheckBox();
             this.pnlCommandLine.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvResults)).BeginInit();
             this.pnlGridResults.SuspendLayout();
@@ -600,12 +601,23 @@ namespace FindAndReplace.App
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // chkKeepModifiedDate
+            // 
+            this.chkKeepModifiedDate.AutoSize = true;
+            this.chkKeepModifiedDate.Location = new System.Drawing.Point(361, 242);
+            this.chkKeepModifiedDate.Name = "chkKeepModifiedDate";
+            this.chkKeepModifiedDate.Size = new System.Drawing.Size(120, 17);
+            this.chkKeepModifiedDate.TabIndex = 37;
+            this.chkKeepModifiedDate.Text = "Keep Modified Date";
+            this.chkKeepModifiedDate.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.ClientSize = new System.Drawing.Size(677, 517);
+            this.Controls.Add(this.chkKeepModifiedDate);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.linkLabel1);
@@ -726,6 +738,7 @@ namespace FindAndReplace.App
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox chkKeepModifiedDate;
     }
 }
 

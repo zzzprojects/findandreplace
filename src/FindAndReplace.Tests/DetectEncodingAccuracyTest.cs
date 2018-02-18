@@ -9,7 +9,6 @@ using href.Utils;
 namespace FindAndReplace.Tests
 {
 	[TestFixture]
-	[Ignore]
 	public class DetectEncodingAccuracyTest : TestBase
 	{
 

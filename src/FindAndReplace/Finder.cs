@@ -38,7 +38,8 @@ namespace FindAndReplace
 	    public string ExcludeDir { get; set; }
         public string FindText { get; set; }
 		public bool IsCaseSensitive { get; set; }
-		public bool FindTextHasRegEx { get; set; }
+	    public bool IsKeepModifiedDate { get; set; }
+        public bool FindTextHasRegEx { get; set; }
 		public bool SkipBinaryFileDetection { get; set; }
 
 		public bool UseEscapeChars { get; set; }
@@ -271,7 +272,7 @@ namespace FindAndReplace
 			return CommandLineUtils.GenerateCommandLine(Dir, FileMask, ExcludeFileMask, ExcludeDir, IncludeSubDirectories, IsCaseSensitive,
 			                                            FindTextHasRegEx, SkipBinaryFileDetection, showEncoding,
 			                                            IncludeFilesWithoutMatches, UseEscapeChars, AlwaysUseEncoding, FindText,
-			                                            null);
+			                                            null, IsKeepModifiedDate);
 		}
 	}
 }

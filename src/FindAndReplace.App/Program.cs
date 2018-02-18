@@ -42,30 +42,21 @@ namespace FindAndReplace.App
 
 			if (args.Length != 0 && args.Contains("--cl"))
 			{
-				//Get a pointer to the forground window.  The idea here is that
-				//IF the user is starting our application from an existing console
-				//shell, that shell will be the uppermost window.  We'll get it
-				//and attach to it
-				IntPtr ptr = GetForegroundWindow();
+                //Get a parent procss for see where send the output.
+			    Process process = Process.GetProcessById(Process.GetCurrentProcess().Id).Parent();
 
-				int u;
+                if (process.ProcessName == "cmd") //Is the uppermost window a cmd process?
+                {
+                    AttachConsole(process.Id);
+                }
+                else
+                {
+                    //no console AND we're in console mode ... create a new console.
 
-				GetWindowThreadProcessId(ptr, out u);
+                    AllocConsole();
+                }
 
-				Process process = Process.GetProcessById(u);
-
-				if (process.ProcessName == "cmd") //Is the uppermost window a cmd process?
-				{
-					AttachConsole(process.Id);
-				}
-				else
-				{
-					//no console AND we're in console mode ... create a new console.
-
-					AllocConsole();
-				}
-
-				var clRunner = new CommandLineRunner();
+                var clRunner = new CommandLineRunner();
 				int dosErrorLevel = clRunner.Run(args);
 
 				FreeConsole();
@@ -234,8 +225,9 @@ namespace FindAndReplace.App
 					replacer.IsSilent = _options.Silent;
 
 					replacer.FileProcessed += OnReplacerFileProcessed;
+				    replacer.IsKeepModifiedDate = _options.IsKeepModifiedDate;
 
-					var replaceResult = replacer.Replace();
+                    var replaceResult = replacer.Replace();
 
 					if (_options.SetErrorLevelIfAnyFileErrors)
 						if (replaceResult.Stats.Files.FailedToRead > 0 || replaceResult.Stats.Files.FailedToWrite > 0)

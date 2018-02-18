@@ -9,7 +9,6 @@ using NUnit.Framework;
 namespace FindAndReplace.Tests
 {
 	[TestFixture]
-	[Ignore]
 	public class FinderSpeedTest : TestBase
 	{
 		//1000 chars
@@ -98,10 +97,8 @@ free program...";
 		[Test]
 		public void In_Real_Directory()
 		{
-			string realDir = Dir_StyleSalt;
-			if (!Directory.Exists(realDir))
-				return;
-
+			string realDir = "..//..//bin";
+			 
 			StopWatch stopWatch = new StopWatch();
 			stopWatch.Start();
 			

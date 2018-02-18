@@ -108,11 +108,12 @@ namespace FindAndReplace
 												bool useEscapeChars,
 												Encoding encoding,
 												string find,
-												string replace)
+												string replace,
+												bool IsKeepModifiedDate)
 		{
 			return
 				String.Format(
-                    "--cl --dir \"{0}\" --fileMask \"{1}\"{2}{3}{4}{5}{6}{7}{8}{9}{10}{11} --find \"{12}\" {13}",
+                    "--cl --dir \"{0}\" --fileMask \"{1}\"{2}{3}{4}{5}{6}{7}{8}{9}{10}{11}{12} --find \"{13}\" {14}",
 					dir.TrimEnd('\\'),
 					fileMask,
 					String.IsNullOrEmpty(excludeFileMask)
@@ -124,7 +125,8 @@ namespace FindAndReplace
                     includeSubDirectories ? " --includeSubDirectories" : "",
 					isCaseSensitive ? " --caseSensitive" : "",
 					isRegEx ? " --useRegEx" : "",
-					skipBinaryFileDetection ? " --skipBinaryFileDetection" : "",
+                    IsKeepModifiedDate ? " --KeepModifiedDate" : "", 
+                    skipBinaryFileDetection ? " --skipBinaryFileDetection" : "",
 					showEncoding ? " --showEncoding" : "",
 					includeFilesWithoutMatches ? " --includeFilesWithoutMatches" : "",
 					useEscapeChars ? " --useEscapeChars" : "",

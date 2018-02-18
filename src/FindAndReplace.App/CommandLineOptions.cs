@@ -72,12 +72,17 @@ namespace FindAndReplace.App
 		[Option("useEscapeChars", HelpText = "Escape special chars.")]
 		public bool UseEscapeChars { get; set; }
 
+	    [Option("KeepModifiedDate", HelpText = "Keep Modified Date.")]
+	    public bool IsKeepModifiedDate { get; set; }
 
-		#endregion
+        
 
-		#region Specialized Option Attribute
 
-		[HelpOption("help", HelpText = "Display this help screen.")]
+        #endregion
+
+        #region Specialized Option Attribute
+
+        [HelpOption("help", HelpText = "Display this help screen.")]
 		public string GetUsage()
 		{
 			var help = new HelpText("Find And Replace");
