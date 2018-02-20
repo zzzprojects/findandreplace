@@ -4,14 +4,6 @@
 <h1>Project Description</h1>
 <p>An open source tool to find and replace text in multiple files.<br /><br /></p>
 
-<h1>Latest Releases</h1>
-<p>
-<strong>Version 1.7 has been released on May 29th, 2014!</strong><br />
-<a href="https://findandreplace.codeplex.com/releases/view/122813">Read all about it here</a>
-<br /><br /><strong>IMPORTANT</strong>: If you use quotes or backslashes in command line find/replace text, please regenerate your commands before using fnr.exe in batch file. The logic for encoding quotes and slashes has changed in 1.7 to cover all common cases where users had issues.<br /><br /><strong>Version 1.6 has been released on Mar 24th, 2014</strong><br /><a href="https://findandreplace.codeplex.com/releases/view/119228">Read all about it here</a>
-<br /><br /><strong>Version 1.5 has been released on Nov 6th, 2013</strong><br /><a href="https://findandreplace.codeplex.com/releases/view/113464">Read all about it here</a><br /><br />
-</p>
-
 <h1>Features</h1>
 <ul>
 <li>Single file download - fnr.exe (181kb)</li>
