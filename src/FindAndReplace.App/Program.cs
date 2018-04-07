@@ -144,7 +144,7 @@ namespace FindAndReplace.App
 
 			if (!String.IsNullOrEmpty(_options.LogFile))
 			{
-				var fs1 = new FileStream(_options.LogFile, FileMode.Create);
+				var fs1 = new FileStream(_options.LogFile, FileMode.Append);
 				var sw1 = new StreamWriter(fs1);
 				Console.SetOut(sw1);
 			}
