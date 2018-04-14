@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using FindAndReplace.App.Properties;
 using Microsoft.Win32;
 
 namespace FindAndReplace.App
@@ -42,24 +43,26 @@ namespace FindAndReplace.App
 			return versionIndependent;
 		}
 
-		public void SaveToRegistry()
+		public void SaveSetting()
 		{
-			SaveValueToRegistry("Dir", Dir);
-			SaveValueToRegistry("IncludeSubDirectories", IncludeSubDirectories.ToString());
-			SaveValueToRegistry("FileMask", FileMask);
-			SaveValueToRegistry("ExcludeFileMask", ExcludeFileMask);
-		    SaveValueToRegistry("ExcludeDir", ExcludeDir);
-            SaveValueToRegistry("FindText", FindText);
-			SaveValueToRegistry("IsCaseSensitive", IsCaseSensitive.ToString());
-			SaveValueToRegistry("IsRegEx", IsRegEx.ToString());
-			SaveValueToRegistry("SkipBinaryFileDetection", SkipBinaryFileDetection.ToString());
-			SaveValueToRegistry("ShowEncoding", ShowEncoding.ToString());
-			SaveValueToRegistry("IncludeFilesWithoutMatches", IncludeFilesWithoutMatches.ToString());
-			SaveValueToRegistry("ReplaceText", ReplaceText);
-			SaveValueToRegistry("UseEscapeChars", UseEscapeChars.ToString());
-			SaveValueToRegistry("Encoding", Encoding);
-		    SaveValueToRegistry("IsKeepModifiedDate", IsKeepModifiedDate.ToString());
-        }
+		    Settings.Default["Dir"] = Dir; 
+		    Settings.Default["IncludeSubDirectories"] = IncludeSubDirectories.ToString();
+		    Settings.Default["FileMask"] = FileMask;
+		    Settings.Default["ExcludeFileMask"] = ExcludeFileMask;
+		    Settings.Default["ExcludeDir"] = ExcludeDir;
+		    Settings.Default["FindText"] = FindText;
+		    Settings.Default["IsCaseSensitive"] = IsCaseSensitive.ToString();
+		    Settings.Default["IsRegEx"] = IsRegEx.ToString();
+		    Settings.Default["SkipBinaryFileDetection"] = SkipBinaryFileDetection.ToString();
+		    Settings.Default["ShowEncoding"] = ShowEncoding.ToString();
+		    Settings.Default["IncludeFilesWithoutMatches"] = IncludeFilesWithoutMatches.ToString();
+		    Settings.Default["ReplaceText"] = ReplaceText;
+		    Settings.Default["UseEscapeChars"] = UseEscapeChars.ToString();
+            Settings.Default["Encoding"] = Encoding;
+		    Settings.Default["IsKeepModifiedDate"] = IsKeepModifiedDate.ToString();
+
+		    Settings.Default.Save();
+		}
 
 		public bool IsEmpty()
 		{
@@ -68,23 +71,23 @@ namespace FindAndReplace.App
 			return dir == null;
 		}
 
-		public void LoadFromRegistry()
-		{
-			Dir = GetValueFromRegistry("Dir");
-			IncludeSubDirectories = GetValueFromRegistry("IncludeSubDirectories") == "True";
-			FileMask = GetValueFromRegistry("Filemask");
-			ExcludeFileMask = GetValueFromRegistry("ExcludeFileMask");
-		    ExcludeDir = GetValueFromRegistry("ExcludeDir");
-            FindText = GetValueFromRegistry("FindText");
-			IsCaseSensitive = GetValueFromRegistry("IsCaseSensitive") == "True";
-			IsRegEx = GetValueFromRegistry("IsRegEx") == "True";
-			SkipBinaryFileDetection = GetValueFromRegistry("SkipBinaryFileDetection") == "True";
-			IncludeFilesWithoutMatches = GetValueFromRegistry("IncludeFilesWithoutMatches") == "True";
-			ShowEncoding = GetValueFromRegistry("ShowEncoding") == "True";
-			ReplaceText = GetValueFromRegistry("ReplaceText");
-			UseEscapeChars = GetValueFromRegistry("UseEscapeChars") == "True";
-			Encoding = GetValueFromRegistry("Encoding");
-		    IsKeepModifiedDate= GetValueFromRegistry("IsKeepModifiedDate") == "True";
+		public void LoadSetting()
+		{   
+            Dir = Settings.Default["Dir"].ToString();
+			IncludeSubDirectories = Settings.Default["IncludeSubDirectories"].ToString() == "True";
+			FileMask = Settings.Default["FileMask"].ToString();
+			ExcludeFileMask = Settings.Default["ExcludeFileMask"].ToString();
+		    ExcludeDir = Settings.Default["ExcludeDir"].ToString();
+            FindText = Settings.Default["FindText"].ToString();
+			IsCaseSensitive = Settings.Default["IsCaseSensitive"].ToString() == "True";
+			IsRegEx = Settings.Default["IsRegEx"].ToString() == "True";
+			SkipBinaryFileDetection = Settings.Default["SkipBinaryFileDetection"].ToString() == "True";
+			IncludeFilesWithoutMatches = Settings.Default["IncludeFilesWithoutMatches"].ToString() == "True";
+			ShowEncoding = Settings.Default["ShowEncoding"].ToString() == "True";
+			ReplaceText = Settings.Default["ReplaceText"].ToString();
+			UseEscapeChars = Settings.Default["UseEscapeChars"].ToString() == "True";
+			Encoding = Settings.Default["Encoding"].ToString();
+		    IsKeepModifiedDate= Settings.Default["IsKeepModifiedDate"].ToString() == "True";
         }
 
 

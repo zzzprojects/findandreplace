@@ -98,7 +98,7 @@ namespace FindAndReplace.App
 		    data.ExcludeDir = txtExcludeDir.Text;
 		    data.IsKeepModifiedDate = chkKeepModifiedDate.Checked;
 
-            data.SaveToRegistry();
+            data.SaveSetting();
 
 			_lastOperationFormData = data;
 		}
@@ -883,7 +883,7 @@ namespace FindAndReplace.App
 			if (data.IsEmpty()) //Keep defaults
 				return;
 
-			data.LoadFromRegistry();
+			data.LoadSetting();
 
 			txtDir.Text = data.Dir;
 			chkIncludeSubDirectories.Checked = data.IncludeSubDirectories;
