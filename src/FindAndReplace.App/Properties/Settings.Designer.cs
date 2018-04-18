@@ -37,10 +37,10 @@ namespace FindAndReplace.App.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string IncludeSubDirectories {
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IncludeSubDirectories {
             get {
-                return ((string)(this["IncludeSubDirectories"]));
+                return ((bool)(this["IncludeSubDirectories"]));
             }
             set {
                 this["IncludeSubDirectories"] = value;
@@ -97,10 +97,10 @@ namespace FindAndReplace.App.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string IsCaseSensitive {
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsCaseSensitive {
             get {
-                return ((string)(this["IsCaseSensitive"]));
+                return ((bool)(this["IsCaseSensitive"]));
             }
             set {
                 this["IsCaseSensitive"] = value;
@@ -109,10 +109,10 @@ namespace FindAndReplace.App.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string IsRegEx {
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsRegEx {
             get {
-                return ((string)(this["IsRegEx"]));
+                return ((bool)(this["IsRegEx"]));
             }
             set {
                 this["IsRegEx"] = value;
@@ -121,10 +121,10 @@ namespace FindAndReplace.App.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string SkipBinaryFileDetection {
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SkipBinaryFileDetection {
             get {
-                return ((string)(this["SkipBinaryFileDetection"]));
+                return ((bool)(this["SkipBinaryFileDetection"]));
             }
             set {
                 this["SkipBinaryFileDetection"] = value;
@@ -133,10 +133,10 @@ namespace FindAndReplace.App.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ShowEncoding {
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShowEncoding {
             get {
-                return ((string)(this["ShowEncoding"]));
+                return ((bool)(this["ShowEncoding"]));
             }
             set {
                 this["ShowEncoding"] = value;
@@ -145,10 +145,10 @@ namespace FindAndReplace.App.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string IncludeFilesWithoutMatches {
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IncludeFilesWithoutMatches {
             get {
-                return ((string)(this["IncludeFilesWithoutMatches"]));
+                return ((bool)(this["IncludeFilesWithoutMatches"]));
             }
             set {
                 this["IncludeFilesWithoutMatches"] = value;
@@ -169,10 +169,10 @@ namespace FindAndReplace.App.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string UseEscapeChars {
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UseEscapeChars {
             get {
-                return ((string)(this["UseEscapeChars"]));
+                return ((bool)(this["UseEscapeChars"]));
             }
             set {
                 this["UseEscapeChars"] = value;
@@ -193,13 +193,37 @@ namespace FindAndReplace.App.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string IsKeepModifiedDate {
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IsKeepModifiedDate {
             get {
-                return ((string)(this["IsKeepModifiedDate"]));
+                return ((bool)(this["IsKeepModifiedDate"]));
             }
             set {
                 this["IsKeepModifiedDate"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool UpgradeRequired {
+            get {
+                return ((bool)(this["UpgradeRequired"]));
+            }
+            set {
+                this["UpgradeRequired"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool IsFirstTime {
+            get {
+                return ((bool)(this["IsFirstTime"]));
+            }
+            set {
+                this["IsFirstTime"] = value;
             }
         }
     }

@@ -880,10 +880,14 @@ namespace FindAndReplace.App
 		private void InitWithRegistryData()
 		{
 			var data = new FormData();
-			if (data.IsEmpty()) //Keep defaults
-				return;
 
 			data.LoadSetting();
+
+		    if (data.IsFirstTime)
+		    {
+                data.IsFirstTime = false;
+                return;
+		    }
 
 			txtDir.Text = data.Dir;
 			chkIncludeSubDirectories.Checked = data.IncludeSubDirectories;
@@ -899,7 +903,6 @@ namespace FindAndReplace.App
 			txtReplace.Text = data.ReplaceText;
 			chkUseEscapeChars.Checked = data.UseEscapeChars;
 		    chkKeepModifiedDate.Checked = data.IsKeepModifiedDate;
-
 
             if (!string.IsNullOrEmpty(data.Encoding))
 				cmbEncoding.SelectedIndex = cmbEncoding.Items.IndexOf(data.Encoding);

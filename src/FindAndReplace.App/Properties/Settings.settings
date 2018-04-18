@@ -5,8 +5,8 @@
     <Setting Name="Dir" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="IncludeSubDirectories" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="IncludeSubDirectories" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="FileMask" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -20,32 +20,38 @@
     <Setting Name="FindText" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="IsCaseSensitive" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="IsCaseSensitive" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="IsRegEx" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="IsRegEx" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="SkipBinaryFileDetection" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="SkipBinaryFileDetection" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="ShowEncoding" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="ShowEncoding" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="IncludeFilesWithoutMatches" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="IncludeFilesWithoutMatches" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="ReplaceText" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="UseEscapeChars" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="UseEscapeChars" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="Encoding" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="IsKeepModifiedDate" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="IsKeepModifiedDate" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="UpgradeRequired" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="IsFirstTime" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>
