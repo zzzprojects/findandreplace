@@ -1,6 +1,4 @@
----
-permalink: installing
----
+# Installing
 
 **Find and Replace (FNR)** is single file which can be easily downloaded and don't need any installation.
 

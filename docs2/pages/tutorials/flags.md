@@ -1,6 +1,4 @@
----
-permalink: flags
----
+# Flags
 
 ## Flags
 

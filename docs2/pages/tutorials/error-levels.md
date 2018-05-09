@@ -1,6 +1,4 @@
----
-permalink: error-levels
----
+# Error Levels
 
 ## Error Levels
 

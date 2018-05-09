@@ -1,6 +1,4 @@
----
-permalink: regular-expressions
----
+# Regular Expressions
 
 ## Regular Expressions
 

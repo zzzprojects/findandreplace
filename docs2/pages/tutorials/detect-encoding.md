@@ -1,6 +1,4 @@
----
-permalink: detect-encoding
----
+# Detect Encoding
 
 ## Detect Encoding
 

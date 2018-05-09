@@ -1,6 +1,4 @@
----
-permalink: command-line
----
+# Command Line
 
 ## Command Line
 

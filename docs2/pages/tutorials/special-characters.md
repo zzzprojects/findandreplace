@@ -1,6 +1,4 @@
----
-permalink: special-characters
----
+# Special Characters
 
 ## Escape Characters
 

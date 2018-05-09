@@ -1,6 +1,4 @@
----
-permalink: basic-usage
----
+# Basic Usage
 
 ## Basic Usage
 
