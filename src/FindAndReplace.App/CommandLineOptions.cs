@@ -75,14 +75,15 @@ namespace FindAndReplace.App
 	    [Option("KeepModifiedDate", HelpText = "Keep Modified Date.")]
 	    public bool IsKeepModifiedDate { get; set; }
 
-        
+		[Option("consoleByProcessId", HelpText = "If the console should be found by process id")]
+		public bool IsConsoleByProcessId { get; set; }
 
 
-        #endregion
+		#endregion
 
-        #region Specialized Option Attribute
+		#region Specialized Option Attribute
 
-        [HelpOption("help", HelpText = "Display this help screen.")]
+		[HelpOption("help", HelpText = "Display this help screen.")]
 		public string GetUsage()
 		{
 			var help = new HelpText("Find And Replace");

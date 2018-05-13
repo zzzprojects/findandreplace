@@ -32,6 +32,7 @@ namespace FindAndReplace.App
 		public MainForm()
 		{
 			InitializeComponent();
+		    this.Text = this.Text + " (v" + Application.ProductVersion + ")";
 		}
 
 

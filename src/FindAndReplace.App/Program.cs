@@ -41,11 +41,30 @@ namespace FindAndReplace.App
 			AppDomain.CurrentDomain.AssemblyResolve += ResolveEventHandler;
 
 			if (args.Length != 0 && args.Contains("--cl"))
-			{
-                //Get a parent procss for see where send the output.
-			    Process process = Process.GetProcessById(Process.GetCurrentProcess().Id).Parent();
+			{ 
+				Process process = null;
 
-                if (process.ProcessName == "cmd") //Is the uppermost window a cmd process?
+				if (args.Contains("--consoleByProcessId"))
+				{
+					//Get a parent procss for see where send the output.
+					process = Process.GetProcessById(Process.GetCurrentProcess().Id).Parent();
+				}
+				else
+				{
+					//Get a pointer to the forground window.  The idea here is that
+					//IF the user is starting our application from an existing console
+					//shell, that shell will be the uppermost window.  We'll get it
+					//and attach to it
+					IntPtr ptr = GetForegroundWindow();
+
+					int u;
+
+					GetWindowThreadProcessId(ptr, out u);
+
+					process = Process.GetProcessById(u);
+				}
+
+				if (process.ProcessName == "cmd") //Is the uppermost window a cmd process?
                 {
                     AttachConsole(process.Id);
                 }
