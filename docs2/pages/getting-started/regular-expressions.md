@@ -11,7 +11,7 @@ To use regular expressions in your find/replace text, you need just to check the
 
 ```csharp
 
-\b[A-Z0-9._%-]+@@[A-Z0-9.-]+\.[A-Z]{2,4}\b
+\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b
 
 ```
 
@@ -23,7 +23,7 @@ But if you are using the command line in batch mode then use **--useRegEx** flag
 ```csharp
 
 "D:\fnr.exe" --cl --dir "D:\Project\ZZZ\FNR Testing\Temp" --fileMask "*.*" --includeSubDirectories 
-    --useRegEx --find "\b[A-Z0-9._%-]+@@[A-Z0-9.-]+\.[A-Z]{2,4}\b" --replace ""
+    --useRegEx --find "\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b" --replace ""
 
 ```
 
