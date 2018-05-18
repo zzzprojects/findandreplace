@@ -4,7 +4,7 @@
 
 **Find and Replace (FNR)** supports escape characters such as "\n", "\t", etc. To use [escape characters](https://en.wikipedia.org/wiki/Escape_character) in your find/replace text, you need just to check the **Use escape chars** checkbox if you are using the UI. 
 
-<img src="images/escape-chars.png" alt="Escape Chars"/>
+<img src="https://raw.githubusercontent.com/zzzprojects/findandreplace/master/docs/images/escape-chars.png" alt="Escape Chars"/>
 
 But if you are using the command line in batch mode then use **--useEscapeChars** flag.
 

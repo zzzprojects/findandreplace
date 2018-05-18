@@ -4,7 +4,7 @@
 
 **Find and Replace (FNR)** can also be used as a command line utility. The intersting thing about FNR is that it can create command line text to put in batch file by simply clinking on the **Gen Replace Command Line** button.
 
-<img src="images/command-line.png" alt="Command Line" width="99%"/> 
+<img src="https://raw.githubusercontent.com/zzzprojects/findandreplace/master/docs/images/command-line.png" alt="Command Line" width="99%"/> 
 
 ### Example
 
@@ -18,5 +18,5 @@ Let's try to replace "license" with "agreement" by using the command line, so ju
 
 ```
 
-<img src="images/command-line-1.png" alt="Command Line" width="99%"/> 
+<img src="https://raw.githubusercontent.com/zzzprojects/findandreplace/master/docs/images/command-line-1.png" alt="Command Line" width="99%"/> 
 

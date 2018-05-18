@@ -15,7 +15,7 @@ To use regular expressions in your find/replace text, you need just to check the
 
 ```
 
-<img src="images/regular-expressions.png" alt="Regular Expressions"/>
+<img src="https://raw.githubusercontent.com/zzzprojects/findandreplace/master/docs/images/regular-expressions.png" alt="Regular Expressions"/>
 
 But if you are using the command line in batch mode then use **--useRegEx** flag.
 
