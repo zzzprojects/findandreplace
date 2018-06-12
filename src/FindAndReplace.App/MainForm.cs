@@ -266,7 +266,15 @@ namespace FindAndReplace.App
 
 		private void DoFindWork()
 		{
-			_finder.Find();
+		    try
+		    {
+		        _finder.Find();
+		    }
+		    catch (Exception e)
+		    {
+		        MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+		        OnFinderFileProcessed(this, new FinderEventArgs(new Finder.FindResultItem(), new Stats(), Status.Cancelled, _finder.IsSilent));
+		    }
 		}
 
 		private void ShowResultPanel()
@@ -471,8 +479,16 @@ namespace FindAndReplace.App
 
 		private void DoReplaceWork()
 		{
-			_replacer.Replace();
-		}
+		    try
+		    {
+		        _replacer.Replace();
+            }
+		    catch (Exception e)
+		    {
+		        MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+		        ReplaceFileProceed(this, new ReplacerEventArgs(new Replacer.ReplaceResultItem(), new Stats(), Status.Cancelled, _replacer.IsSilent));
+		    }
+        }
 
 		private void ShowReplaceResult(Replacer.ReplaceResultItem replaceResultItem, Stats stats, Status status)
 		{
