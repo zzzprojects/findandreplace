@@ -15,7 +15,7 @@ namespace FindAndReplace.App
 
 	public partial class MainForm : Form
 	{
-		public const int ExtraWidthWhenResults = 335;
+		//public const int ExtraWidthWhenResults = 335;
 
 		private Finder _finder;
 		private Replacer _replacer;
@@ -68,8 +68,8 @@ namespace FindAndReplace.App
 			CreateListener(finder);
 
 			ShowResultPanel();
-
-			SaveToRegistry();
+		    txtMatchesPreview.Clear();
+            SaveToRegistry();
 
 			_currentThread = new Thread(DoFindWork);
 			_currentThread.IsBackground = true;
@@ -118,10 +118,11 @@ namespace FindAndReplace.App
 			if (chkShowEncoding.Checked)
 				AddResultsColumn("FileEncoding", "Encoding", 100);
 
-			AddResultsColumn("NumMatches", "Matches", 50);
+			AddResultsColumn("NumMatches", "Matches", 55);
 			AddResultsColumn("ErrorMessage", "Error", 150);
+            gvResults.Columns[gvResults.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
-			gvResults.Columns.Add("MatchesPreview", "");
+            gvResults.Columns.Add("MatchesPreview", "");
 			gvResults.Columns[gvResults.ColumnCount - 1].Visible = false;
 
 			HideMatchesPreviewPanel();
@@ -137,7 +138,7 @@ namespace FindAndReplace.App
 					HeaderText = headerText,
 					CellTemplate = new DataGridViewTextBoxCell(),
 					Width = width,
-					SortMode = DataGridViewColumnSortMode.Automatic
+					SortMode = DataGridViewColumnSortMode.Automatic,
 				});
 		}
 
@@ -290,14 +291,14 @@ namespace FindAndReplace.App
 			{
 				pnlGridResults.Visible = true;
 
-				if (pnlCommandLine.Visible)
-				{
-					this.Height -= pnlCommandLine.Height + 10;
-					pnlCommandLine.Visible = false;
-				}
+				//if (pnlCommandLine.Visible)
+				//{
+				//	this.Height -= pnlCommandLine.Height + 10;
+				//	pnlCommandLine.Visible = false;
+				//}
 
-				this.Height += pnlGridResults.Height + 10;
-				this.Width += ExtraWidthWhenResults;
+				//this.Height += pnlGridResults.Height + 10;
+				//this.Width += ExtraWidthWhenResults;
 			}
 		}
 
@@ -307,8 +308,8 @@ namespace FindAndReplace.App
 			{
 				pnlGridResults.Visible = false;
 
-				this.Height -= pnlGridResults.Height + 10;
-				this.Width -= ExtraWidthWhenResults;
+				//this.Height -= pnlGridResults.Height + 10;
+				//this.Width -= ExtraWidthWhenResults;
 			}
 		}
 
@@ -320,8 +321,8 @@ namespace FindAndReplace.App
 			if (!pnlCommandLine.Visible)
 			{
 				pnlCommandLine.Visible = true;
-				this.Height += pnlCommandLine.Height + 10;
-				this.Width += ExtraWidthWhenResults;
+				//this.Height += pnlCommandLine.Height + 10;
+				//this.Width += ExtraWidthWhenResults;
 			}
 		}
 
@@ -330,27 +331,27 @@ namespace FindAndReplace.App
 			if (pnlCommandLine.Visible)
 			{
 				pnlCommandLine.Visible = false;
-				this.Height -= pnlCommandLine.Height + 10;
-				this.Width -= ExtraWidthWhenResults;
+				//this.Height -= pnlCommandLine.Height + 10;
+				//this.Width -= ExtraWidthWhenResults;
 			}
 		}
 
 		private void ShowMatchesPreviewPanel()
 		{
-			if (!txtMatchesPreview.Visible)
+			if (!txtMatchesPreview.Enabled)
 			{
-				txtMatchesPreview.Visible = true;
-				this.Height += txtMatchesPreview.Height + 50;
+				txtMatchesPreview.Enabled = true;
+				//this.Height += txtMatchesPreview.Height + 50;
 			}
 
 		}
 
 		private void HideMatchesPreviewPanel()
 		{
-			if (txtMatchesPreview.Visible)
+			if (txtMatchesPreview.Enabled)
 			{
-				txtMatchesPreview.Visible = false;
-				this.Height -= (txtMatchesPreview.Height + 50);
+				txtMatchesPreview.Enabled = false;
+				//this.Height -= (txtMatchesPreview.Height + 50);
 			}
 		}
 
@@ -433,7 +434,7 @@ namespace FindAndReplace.App
 			lblStatus.Text = "Getting file list...";
 
 			PrepareReplacerGrid();
-			txtMatchesPreview.Visible = false;
+			txtMatchesPreview.Clear();
 
 			var replacer = GetReplacer();
 
@@ -469,8 +470,9 @@ namespace FindAndReplace.App
 			AddResultsColumn("NumMatches", "Matches", 50);
 			AddResultsColumn("IsSuccess", "Replaced", 60);
 			AddResultsColumn("ErrorMessage", "Error", 150);
+		    gvResults.Columns[gvResults.ColumnCount - 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
-			gvResults.Columns.Add("MatchesPreview", "");
+            gvResults.Columns.Add("MatchesPreview", "");
 			gvResults.Columns[gvResults.ColumnCount - 1].Visible = false;
 
 			HideMatchesPreviewPanel();
@@ -780,6 +782,8 @@ namespace FindAndReplace.App
 			cmbEncoding.SelectedIndex = 0;
 			
 			InitWithRegistryData();
+
+		    txtDir.Focus();
 		}
 
 		//from http://stackoverflow.com/questions/334630/c-open-folder-and-select-the-file

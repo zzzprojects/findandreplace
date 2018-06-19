@@ -1,0 +1,20 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/packages
+/.vs
+/EncodingTools/bin/Debug
+/EncodingTools/obj/Debug
+/EncodingTools/obj/Release
+/FindAndReplace/bin/Debug
+/FindAndReplace/obj
+/FindAndReplace.App/obj/x86
+/FindAndReplace.App/bin/Debug
+/FindAndReplace.Tests/obj
+/FindAndReplace.Tests/bin/Debug
+/FindAndReplace.Tests.CommandLine/obj
+/FindAndReplace.Tests.CommandLine/bin/Debug
+/EncodingTools/bin/Release
+/FindAndReplace/bin/Release
+/FindAndReplace.App/bin/Release
