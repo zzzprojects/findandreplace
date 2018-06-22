@@ -81,25 +81,4 @@ Global
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ED5AA572-1A7B-41D8-AADE-319253AEB15B}
 	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 6
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://zzzproject.visualstudio.com/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = FindAndReplace.App\\FindAndReplace.App.csproj
-		SccProjectName1 = FindAndReplace.App
-		SccLocalPath1 = FindAndReplace.App
-		SccProjectUniqueName2 = FindAndReplace.Tests\\FindAndReplace.Tests.csproj
-		SccProjectName2 = FindAndReplace.Tests
-		SccLocalPath2 = FindAndReplace.Tests
-		SccProjectUniqueName3 = FindAndReplace\\FindAndReplace.csproj
-		SccProjectName3 = FindAndReplace
-		SccLocalPath3 = FindAndReplace
-		SccProjectUniqueName4 = EncodingTools\\EncodingTools.csproj
-		SccProjectName4 = EncodingTools
-		SccLocalPath4 = EncodingTools
-		SccProjectUniqueName5 = FindAndReplace.Tests.CommandLine\\FindAndReplace.Tests.CommandLine.csproj
-		SccProjectName5 = FindAndReplace.Tests.CommandLine
-		SccLocalPath5 = FindAndReplace.Tests.CommandLine
-	EndGlobalSection
 EndGlobal
