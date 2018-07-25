@@ -9,6 +9,8 @@ Find and Replace has;
 - Simple UI to make sure that find/replace works. 
 - Command line to run find/replace using a batch file.
 
+## Installing and Upgrading
+Download the <a href="/download">NuGet Package</a>
 
 ## Features?
 
