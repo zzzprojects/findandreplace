@@ -10,7 +10,7 @@ Find and Replace has;
 - Command line to run find/replace using a batch file.
 
 ## Installing and Upgrading
-Download the <a href="/download">NuGet Package</a>
+Find and Replace (FNR) is single file which can be easily <a href="/download">downloaded</a> and don't need any installation.
 
 ## Features?
 
