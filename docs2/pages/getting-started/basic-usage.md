@@ -12,7 +12,7 @@
 
 ### Example
 
-Let’s try to search “license” by specify it in Find field and click on the Find Only button which will search for all occurrences of “license”. The Results section will display all the files in which the results are found.
+Let's try to search “license” by specify it in Find field and click on the Find Only button which will search for all occurrences of “license”. The Results section will display all the files in which the results are found.
 
 <img src="https://raw.githubusercontent.com/zzzprojects/findandreplace/master/docs/images/basic-usage-1.png" alt="Basic Usage"/>
 
