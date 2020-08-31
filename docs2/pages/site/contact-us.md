@@ -1,5 +1,9 @@
 # Contact Us
 
-## Support
+<div class="container">
+  
+<h2>Support</h2>
 
 The  support for `Find & Replace` is currently paused.
+
+</div>
