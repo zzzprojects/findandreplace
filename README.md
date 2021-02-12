@@ -16,7 +16,7 @@ It is an open source tool to find and replace text in multiple files.
 ## Usefull links
 
 - [Website](http://findandreplace.io/)
-- [Documentation](http://findandreplace.io/overview)find
+- [Documentation](http://findandreplace.io/overview)
 - [Download](http://findandreplace.io/download)
 
 ## Contribute
