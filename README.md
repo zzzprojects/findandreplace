@@ -13,7 +13,7 @@ This library is powered by [Entity Framework Extensions](https://entityframework
 # What's Find and Replace (FNR)?
 It is an open source tool to find and replace text in multiple files.
 
-## Usefull links
+## Useful links
 
 - [Website](http://findandreplace.io/)
 - [Documentation](http://findandreplace.io/overview)
