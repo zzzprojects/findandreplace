@@ -18,17 +18,19 @@ namespace FindAndReplace
 			MLang = 4
 		}
 
-		public static Encoding Detect(byte[] bytes, EncodingDetector.Options opts = Options.KlerkSoftBom | Options.MLang | Options.KlerkSoftHeuristics, Encoding defaultEncoding = null)
+		public static Encoding Detect(byte[] bytes, EncodingDetector.Options opts = Options.KlerkSoftBom | Options.MLang | Options.KlerkSoftHeuristics, Encoding defaultEncoding = null, bool collectStopwatchData = true)
 		{
 			Encoding encoding = null;
 
 			if ((opts & Options.KlerkSoftBom) == Options.KlerkSoftBom)
 			{
-				StopWatch.Start("DetectEncoding: UsingKlerksSoftBom");
+				if (collectStopwatchData)
+					StopWatch.Start("DetectEncoding: UsingKlerksSoftBom");
 
 				encoding = DetectEncodingUsingKlerksSoftBom(bytes);
 
-				StopWatch.Stop("DetectEncoding: UsingKlerksSoftBom");
+				if (collectStopwatchData)
+					StopWatch.Stop("DetectEncoding: UsingKlerksSoftBom");
 			}
 
 			if (encoding != null)
@@ -36,9 +38,11 @@ namespace FindAndReplace
 
 			if ((opts & Options.KlerkSoftHeuristics) == Options.KlerkSoftHeuristics)
 			{
-				StopWatch.Start("DetectEncoding: UsingKlerksSoftHeuristics");
+				if (collectStopwatchData)
+					StopWatch.Start("DetectEncoding: UsingKlerksSoftHeuristics");
 				encoding = DetectEncodingUsingKlerksSoftHeuristics(bytes);
-				StopWatch.Stop("DetectEncoding: UsingKlerksSoftHeuristics");
+				if (collectStopwatchData)
+					StopWatch.Stop("DetectEncoding: UsingKlerksSoftHeuristics");
 			}
 
 			if (encoding != null)
@@ -46,9 +50,11 @@ namespace FindAndReplace
 
 			if ((opts & Options.MLang) == Options.MLang)
 			{
-				StopWatch.Start("DetectEncoding: UsingMLang");
+				if (collectStopwatchData)
+					StopWatch.Start("DetectEncoding: UsingMLang");
 				encoding = DetectEncodingUsingMLang(bytes);
-				StopWatch.Stop("DetectEncoding: UsingMLang");
+				if (collectStopwatchData)
+					StopWatch.Stop("DetectEncoding: UsingMLang");
 			}
 
             if (encoding == null)

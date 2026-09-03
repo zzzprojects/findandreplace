@@ -210,10 +210,12 @@ namespace FindAndReplace
 
 				line = key + ": " + secs + " secs, " + stopWatch.Milliseconds + " millisecs";
 
-				decimal avgDuration = Math.Round((((decimal)stopWatch.Milliseconds) / stopWatch.StopCount), 1);
+				decimal avgDuration = stopWatch.StopCount == 0
+					? 0
+					: Math.Round((((decimal)stopWatch.Milliseconds) / stopWatch.StopCount), 1);
 				line += ", " + stopWatch.StopCount + " stops, Avg Duration " + avgDuration + " millisecs";
 
-				if (totalMilliseconds != null)
+				if (totalMilliseconds != null && totalMilliseconds.Value > 0)
 				{
 					percent = Math.Round((stopWatch.Milliseconds / (decimal)totalMilliseconds.Value) * 100, 1);
 					line += ", " + percent + "%";
