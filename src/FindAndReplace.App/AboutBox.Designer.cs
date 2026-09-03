@@ -34,6 +34,8 @@
             this.lnkProduct = new System.Windows.Forms.LinkLabel();
             this.uiSupportedBy = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
+            this.labelUpdates = new System.Windows.Forms.Label();
+            this.linkUpdates = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // lblProductName
@@ -57,7 +59,7 @@
             // lblCopyright
             // 
             this.lblCopyright.AutoSize = true;
-            this.lblCopyright.Location = new System.Drawing.Point(22, 140);
+            this.lblCopyright.Location = new System.Drawing.Point(22, 130);
             this.lblCopyright.Name = "lblCopyright";
             this.lblCopyright.Size = new System.Drawing.Size(51, 13);
             this.lblCopyright.TabIndex = 2;
@@ -66,7 +68,7 @@
             // lnkCompany
             // 
             this.lnkCompany.AutoSize = true;
-            this.lnkCompany.Location = new System.Drawing.Point(22, 160);
+            this.lnkCompany.Location = new System.Drawing.Point(124, 130);
             this.lnkCompany.Name = "lnkCompany";
             this.lnkCompany.Size = new System.Drawing.Size(51, 13);
             this.lnkCompany.TabIndex = 3;
@@ -88,7 +90,7 @@
             // uiSupportedBy
             // 
             this.uiSupportedBy.AutoSize = true;
-            this.uiSupportedBy.Location = new System.Drawing.Point(22, 110);
+            this.uiSupportedBy.Location = new System.Drawing.Point(124, 90);
             this.uiSupportedBy.Name = "uiSupportedBy";
             this.uiSupportedBy.Size = new System.Drawing.Size(51, 13);
             this.uiSupportedBy.TabIndex = 6;
@@ -101,15 +103,37 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(22, 90);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 13);
+            this.label1.Size = new System.Drawing.Size(74, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Supported By";
+            this.label1.Text = "Supported By:";
+            // 
+            // labelUpdates
+            // 
+            this.labelUpdates.AutoSize = true;
+            this.labelUpdates.Location = new System.Drawing.Point(22, 110);
+            this.labelUpdates.Name = "labelUpdates";
+            this.labelUpdates.Size = new System.Drawing.Size(87, 13);
+            this.labelUpdates.TabIndex = 7;
+            this.labelUpdates.Text = "GitHub support:";
+            // 
+            // linkUpdates
+            // 
+            this.linkUpdates.AutoSize = true;
+            this.linkUpdates.Location = new System.Drawing.Point(124, 110);
+            this.linkUpdates.Name = "linkUpdates";
+            this.linkUpdates.Size = new System.Drawing.Size(59, 13);
+            this.linkUpdates.TabIndex = 8;
+            this.linkUpdates.TabStop = true;
+            this.linkUpdates.Text = "Repository";
+            this.linkUpdates.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkUpdates_LinkClicked);
             // 
             // AboutBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(228, 191);
+            this.Controls.Add(this.linkUpdates);
+            this.Controls.Add(this.labelUpdates);
             this.Controls.Add(this.uiSupportedBy);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lnkProduct);
@@ -140,5 +164,7 @@
 		private System.Windows.Forms.LinkLabel lnkProduct;
         private System.Windows.Forms.LinkLabel uiSupportedBy;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelUpdates;
+        private System.Windows.Forms.LinkLabel linkUpdates;
     }
 }

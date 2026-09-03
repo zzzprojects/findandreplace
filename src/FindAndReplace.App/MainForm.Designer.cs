@@ -162,7 +162,8 @@ namespace FindAndReplace.App
             // chkIncludeFilesWithoutMatches
             // 
             this.chkIncludeFilesWithoutMatches.AutoSize = true;
-            this.chkIncludeFilesWithoutMatches.Location = new System.Drawing.Point(109, 49);
+            this.chkIncludeFilesWithoutMatches.Location = new System.Drawing.Point(150, 49);
+            this.chkIncludeFilesWithoutMatches.Margin = new System.Windows.Forms.Padding(44, 3, 3, 3);
             this.chkIncludeFilesWithoutMatches.Name = "chkIncludeFilesWithoutMatches";
             this.chkIncludeFilesWithoutMatches.Size = new System.Drawing.Size(162, 17);
             this.chkIncludeFilesWithoutMatches.TabIndex = 5;
@@ -273,7 +274,7 @@ namespace FindAndReplace.App
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 6);
+            this.label4.Location = new System.Drawing.Point(1, 6);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(23, 13);
             this.label4.TabIndex = 2;
@@ -342,9 +343,9 @@ namespace FindAndReplace.App
             this.panel5.Controls.Add(this.panel8);
             this.panel5.Controls.Add(this.flowLayoutPanel1);
             this.panel5.Controls.Add(this.label1);
-            this.panel5.Location = new System.Drawing.Point(3, 40);
+            this.panel5.Location = new System.Drawing.Point(0, 40);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(879, 284);
+            this.panel5.Size = new System.Drawing.Size(882, 284);
             this.panel5.TabIndex = 2;
             // 
             // pnlReplace
@@ -498,7 +499,8 @@ namespace FindAndReplace.App
             // chkIsRegEx
             // 
             this.chkIsRegEx.AutoSize = true;
-            this.chkIsRegEx.Location = new System.Drawing.Point(103, 3);
+            this.chkIsRegEx.Location = new System.Drawing.Point(150, 3);
+            this.chkIsRegEx.Margin = new System.Windows.Forms.Padding(50, 3, 3, 3);
             this.chkIsRegEx.Name = "chkIsRegEx";
             this.chkIsRegEx.Size = new System.Drawing.Size(138, 17);
             this.chkIsRegEx.TabIndex = 1;
@@ -528,7 +530,8 @@ namespace FindAndReplace.App
             // lblEncoding
             // 
             this.lblEncoding.AutoSize = true;
-            this.lblEncoding.Location = new System.Drawing.Point(121, 69);
+            this.lblEncoding.Location = new System.Drawing.Point(150, 74);
+            this.lblEncoding.Margin = new System.Windows.Forms.Padding(32, 5, 3, 3);
             this.lblEncoding.Name = "lblEncoding";
             this.lblEncoding.Size = new System.Drawing.Size(55, 13);
             this.lblEncoding.TabIndex = 7;
@@ -538,7 +541,7 @@ namespace FindAndReplace.App
             // 
             this.cmbEncoding.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEncoding.FormattingEnabled = true;
-            this.cmbEncoding.Location = new System.Drawing.Point(182, 72);
+            this.cmbEncoding.Location = new System.Drawing.Point(211, 72);
             this.cmbEncoding.Name = "cmbEncoding";
             this.cmbEncoding.Size = new System.Drawing.Size(121, 21);
             this.cmbEncoding.TabIndex = 8;
@@ -546,7 +549,7 @@ namespace FindAndReplace.App
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 7);
+            this.label1.Location = new System.Drawing.Point(1, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(30, 13);
             this.label1.TabIndex = 1;
@@ -603,7 +606,7 @@ namespace FindAndReplace.App
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 6);
+            this.label5.Location = new System.Drawing.Point(1, 6);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 13);
             this.label5.TabIndex = 1;
@@ -665,7 +668,7 @@ namespace FindAndReplace.App
             // lblResults
             // 
             this.lblResults.AutoSize = true;
-            this.lblResults.Location = new System.Drawing.Point(2, 4);
+            this.lblResults.Location = new System.Drawing.Point(-1, 4);
             this.lblResults.Name = "lblResults";
             this.lblResults.Size = new System.Drawing.Size(45, 13);
             this.lblResults.TabIndex = 52;
