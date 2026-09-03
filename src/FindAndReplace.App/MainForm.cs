@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 using System.Linq;
+using FindAndReplace;
 
 
 namespace FindAndReplace.App
