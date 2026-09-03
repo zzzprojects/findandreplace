@@ -824,31 +824,33 @@ namespace FindAndReplace.App
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
+            this.label7.AutoSize = false;
             this.label7.Location = new System.Drawing.Point(664, 104);
             this.label7.MaximumSize = new System.Drawing.Size(74, 13);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(74, 13);
             this.label7.TabIndex = 84;
             this.label7.Text = "Supported By:";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // labelUpdates
             // 
             this.labelUpdates.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelUpdates.AutoSize = true;
-            this.labelUpdates.Location = new System.Drawing.Point(684, 123);
+            this.labelUpdates.AutoSize = false;
+            this.labelUpdates.Location = new System.Drawing.Point(664, 123);
             this.labelUpdates.Name = "labelUpdates";
-            this.labelUpdates.Size = new System.Drawing.Size(52, 13);
+            this.labelUpdates.Size = new System.Drawing.Size(74, 13);
             this.labelUpdates.TabIndex = 90;
             this.labelUpdates.Text = "Updates:";
+            this.labelUpdates.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // linkUpdates
             // 
             this.linkUpdates.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.linkUpdates.AutoSize = true;
-            this.linkUpdates.Location = new System.Drawing.Point(742, 123);
+            this.linkUpdates.Location = new System.Drawing.Point(744, 123);
             this.linkUpdates.Name = "linkUpdates";
             this.linkUpdates.Size = new System.Drawing.Size(89, 13);
             this.linkUpdates.TabIndex = 91;
