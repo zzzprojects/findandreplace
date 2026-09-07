@@ -119,5 +119,10 @@ namespace FindAndReplace.App
         {
             Process.Start("http://www.zzzprojects.com/");
         }
+
+        private void linkUpdates_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/Pr0metheus2/findandreplace");
+        }
     }
 }

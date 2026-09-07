@@ -97,6 +97,8 @@ namespace FindAndReplace.App
             this.label8 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label7 = new System.Windows.Forms.Label();
+            this.labelUpdates = new System.Windows.Forms.Label();
+            this.linkUpdates = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -127,15 +129,13 @@ namespace FindAndReplace.App
             // 
             // txtDir
             // 
-            this.txtDir.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtDir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.errorProvider1.SetIconPadding(this.txtDir, 30);
             this.txtDir.Location = new System.Drawing.Point(79, 2);
             this.txtDir.Margin = new System.Windows.Forms.Padding(0);
-            this.txtDir.MinimumSize = new System.Drawing.Size(539, 20);
             this.txtDir.Name = "txtDir";
-            this.txtDir.Size = new System.Drawing.Size(539, 20);
+            this.txtDir.Size = new System.Drawing.Size(441, 20);
             this.txtDir.TabIndex = 0;
             this.txtDir.Validating += new System.ComponentModel.CancelEventHandler(this.txtDir_Validating);
             // 
@@ -162,7 +162,8 @@ namespace FindAndReplace.App
             // chkIncludeFilesWithoutMatches
             // 
             this.chkIncludeFilesWithoutMatches.AutoSize = true;
-            this.chkIncludeFilesWithoutMatches.Location = new System.Drawing.Point(109, 49);
+            this.chkIncludeFilesWithoutMatches.Location = new System.Drawing.Point(150, 49);
+            this.chkIncludeFilesWithoutMatches.Margin = new System.Windows.Forms.Padding(44, 3, 3, 3);
             this.chkIncludeFilesWithoutMatches.Name = "chkIncludeFilesWithoutMatches";
             this.chkIncludeFilesWithoutMatches.Size = new System.Drawing.Size(162, 17);
             this.chkIncludeFilesWithoutMatches.TabIndex = 5;
@@ -254,8 +255,7 @@ namespace FindAndReplace.App
             // 
             // btnSelectDir
             // 
-            this.btnSelectDir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSelectDir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSelectDir.CausesValidation = false;
             this.btnSelectDir.Location = new System.Drawing.Point(526, 1);
             this.btnSelectDir.Margin = new System.Windows.Forms.Padding(0, 0, 5, 0);
@@ -274,7 +274,7 @@ namespace FindAndReplace.App
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 6);
+            this.label4.Location = new System.Drawing.Point(1, 6);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(23, 13);
             this.label4.TabIndex = 2;
@@ -323,9 +323,9 @@ namespace FindAndReplace.App
             // 
             this.lblStats.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblStats.Location = new System.Drawing.Point(619, 9);
+            this.lblStats.Location = new System.Drawing.Point(619, 100);
             this.lblStats.Name = "lblStats";
-            this.lblStats.Size = new System.Drawing.Size(212, 187);
+            this.lblStats.Size = new System.Drawing.Size(212, 174);
             this.lblStats.TabIndex = 51;
             this.lblStats.Text = "Stats";
             // 
@@ -343,9 +343,9 @@ namespace FindAndReplace.App
             this.panel5.Controls.Add(this.panel8);
             this.panel5.Controls.Add(this.flowLayoutPanel1);
             this.panel5.Controls.Add(this.label1);
-            this.panel5.Location = new System.Drawing.Point(3, 40);
+            this.panel5.Location = new System.Drawing.Point(0, 40);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(879, 284);
+            this.panel5.Size = new System.Drawing.Size(882, 284);
             this.panel5.TabIndex = 2;
             // 
             // pnlReplace
@@ -499,7 +499,8 @@ namespace FindAndReplace.App
             // chkIsRegEx
             // 
             this.chkIsRegEx.AutoSize = true;
-            this.chkIsRegEx.Location = new System.Drawing.Point(103, 3);
+            this.chkIsRegEx.Location = new System.Drawing.Point(150, 3);
+            this.chkIsRegEx.Margin = new System.Windows.Forms.Padding(50, 3, 3, 3);
             this.chkIsRegEx.Name = "chkIsRegEx";
             this.chkIsRegEx.Size = new System.Drawing.Size(138, 17);
             this.chkIsRegEx.TabIndex = 1;
@@ -529,7 +530,8 @@ namespace FindAndReplace.App
             // lblEncoding
             // 
             this.lblEncoding.AutoSize = true;
-            this.lblEncoding.Location = new System.Drawing.Point(121, 69);
+            this.lblEncoding.Location = new System.Drawing.Point(150, 74);
+            this.lblEncoding.Margin = new System.Windows.Forms.Padding(32, 5, 3, 3);
             this.lblEncoding.Name = "lblEncoding";
             this.lblEncoding.Size = new System.Drawing.Size(55, 13);
             this.lblEncoding.TabIndex = 7;
@@ -539,7 +541,7 @@ namespace FindAndReplace.App
             // 
             this.cmbEncoding.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEncoding.FormattingEnabled = true;
-            this.cmbEncoding.Location = new System.Drawing.Point(182, 72);
+            this.cmbEncoding.Location = new System.Drawing.Point(211, 72);
             this.cmbEncoding.Name = "cmbEncoding";
             this.cmbEncoding.Size = new System.Drawing.Size(121, 21);
             this.cmbEncoding.TabIndex = 8;
@@ -547,7 +549,7 @@ namespace FindAndReplace.App
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 7);
+            this.label1.Location = new System.Drawing.Point(1, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(30, 13);
             this.label1.TabIndex = 1;
@@ -604,7 +606,7 @@ namespace FindAndReplace.App
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 6);
+            this.label5.Location = new System.Drawing.Point(1, 6);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 13);
             this.label5.TabIndex = 1;
@@ -666,7 +668,7 @@ namespace FindAndReplace.App
             // lblResults
             // 
             this.lblResults.AutoSize = true;
-            this.lblResults.Location = new System.Drawing.Point(2, 4);
+            this.lblResults.Location = new System.Drawing.Point(-1, 4);
             this.lblResults.Name = "lblResults";
             this.lblResults.Size = new System.Drawing.Size(45, 13);
             this.lblResults.TabIndex = 52;
@@ -825,13 +827,39 @@ namespace FindAndReplace.App
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
+            this.label7.AutoSize = false;
             this.label7.Location = new System.Drawing.Point(664, 104);
             this.label7.MaximumSize = new System.Drawing.Size(74, 13);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(74, 13);
             this.label7.TabIndex = 84;
             this.label7.Text = "Supported By:";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // labelUpdates
+            // 
+            this.labelUpdates.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUpdates.AutoSize = false;
+            this.labelUpdates.Location = new System.Drawing.Point(664, 123);
+            this.labelUpdates.Name = "labelUpdates";
+            this.labelUpdates.Size = new System.Drawing.Size(74, 13);
+            this.labelUpdates.TabIndex = 90;
+            this.labelUpdates.Text = "Updates:";
+            this.labelUpdates.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // linkUpdates
+            // 
+            this.linkUpdates.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkUpdates.AutoSize = true;
+            this.linkUpdates.Location = new System.Drawing.Point(744, 123);
+            this.linkUpdates.Name = "linkUpdates";
+            this.linkUpdates.Size = new System.Drawing.Size(89, 13);
+            this.linkUpdates.TabIndex = 91;
+            this.linkUpdates.TabStop = true;
+            this.linkUpdates.Text = "GitHub Releases";
+            this.linkUpdates.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkUpdates_LinkClicked);
             // 
             // pictureBox1
             // 
@@ -869,6 +897,8 @@ namespace FindAndReplace.App
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.ClientSize = new System.Drawing.Size(884, 651);
             this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.linkUpdates);
+            this.Controls.Add(this.labelUpdates);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label7);
@@ -976,6 +1006,8 @@ namespace FindAndReplace.App
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labelUpdates;
+        private System.Windows.Forms.LinkLabel linkUpdates;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtExcludeFileMask;
         private System.Windows.Forms.Label label3;

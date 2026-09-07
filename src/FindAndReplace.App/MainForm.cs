@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 using System.Linq;
+using FindAndReplace;
 
 
 namespace FindAndReplace.App
@@ -1075,6 +1076,11 @@ namespace FindAndReplace.App
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("http://www.zzzprojects.com/");
+        }
+
+        private void linkUpdates_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/Pr0metheus2/findandreplace/releases");
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

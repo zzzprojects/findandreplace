@@ -10,6 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FindAndReplace.App</RootNamespace>
     <AssemblyName>fnr</AssemblyName>
+    <ApplicationIcon>Resources\favicon.ico</ApplicationIcon>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -150,6 +151,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\favicon.ico" />
     <None Include="Resources\swap_icon.gif" />
   </ItemGroup>
   <ItemGroup>

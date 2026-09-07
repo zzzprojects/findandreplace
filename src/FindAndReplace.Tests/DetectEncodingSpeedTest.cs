@@ -50,16 +50,11 @@ namespace FindAndReplace.Tests.DetectEncodingSpeedTest
 
 	    protected void CreateSpeedDir()
 	    {
-	        speedDir = "D:\\Temp\\FindAndReplaceTest2" + "\\Speed";
+	        speedDir = Path.Combine(_tempDir, "Speed");
 
 	        if (Directory.Exists(speedDir))
-	          
-	        {
-	            speedDir = "D:\\Temp\\FindAndReplaceTest2" + "\\Speed";
+	            Directory.Delete(speedDir, true);
 
-	            if (Directory.Exists(speedDir))
-	                Directory.Delete(speedDir, true);
-            }
 	        if (Directory.Exists(speedDir))
 	            throw new InvalidOperationException("Dir '" + speedDir + "' already exists.");
 
@@ -68,7 +63,7 @@ namespace FindAndReplace.Tests.DetectEncodingSpeedTest
 
 	    protected void DeleteSpeedDir()
 	    {
-	        speedDir = "D:\\Temp\\FindAndReplaceTest2" + "\\Speed";
+	        speedDir = Path.Combine(_tempDir, "Speed");
 
 	        if (Directory.Exists(speedDir))
 	            Directory.Delete(speedDir, true);
@@ -143,7 +138,7 @@ namespace FindAndReplace.Tests.DetectEncodingSpeedTest
 		[Test]
 		public void MLang_Real_Dir_MultiThreaded()
 		{
-		    string filePath = "D:\\Temp\\FindAndReplaceTest3";
+		    string filePath = Path.Combine(_tempDir, "MultiThreaded");
 
             //http://msdn.microsoft.com/en-us/library/aa767865(v=vs.85).aspx
             //http://www.dotnetframework.org/default.aspx/Dotnetfx_Vista_SP2/Dotnetfx_Vista_SP2/8@0@50727@4016/DEVDIV/depot/DevDiv/releases/whidbey/NetFxQFE/ndp/clr/src/BCL/System/Text/MLangCodePageEncoding@cs/1/MLangCodePageEncoding@cs
@@ -332,13 +327,10 @@ namespace FindAndReplace.Tests.DetectEncodingSpeedTest
 
 		private void DetectEncodingSyncAction(DetectEncodingFileDto dto)
 		{
-			string stopWatchKey = "DetectEncodingSyncAction_" + Thread.CurrentThread.ManagedThreadId;
-			StopWatch.Start(stopWatchKey);
-			
 			//First try BOM detection and Unicode detection using Klerks Soft encoder
 			//stream.Seek(0, SeekOrigin.Begin);
 
-			Encoding encoding = EncodingDetector.Detect(dto.SampleBytes, EncodingDetector.Options.MLang);
+			Encoding encoding = EncodingDetector.Detect(dto.SampleBytes, EncodingDetector.Options.MLang, null, false);
 
 			//Encoding encoding = null;
 			//Encoding[] detected;
@@ -367,7 +359,6 @@ namespace FindAndReplace.Tests.DetectEncodingSpeedTest
 
 			//WriteToConsole(dto.FilePath + ": " + encoding);
 
-			StopWatch.Stop(stopWatchKey);
 		}
 
 
