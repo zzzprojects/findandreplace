@@ -4,7 +4,6 @@ using System.Text;
 using System.Threading;
 using NUnit.Framework;
 using System.Linq;
-using href.Utils;
 
 namespace FindAndReplace.Tests
 {

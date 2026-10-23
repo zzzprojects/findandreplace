@@ -1,12 +1,40 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using href.Utils;
-
 namespace FindAndReplace
 {
+	//public class StopWatchObject
+	//{
+	//	public int Milliseconds;
 
+	//	public StopWatchObject(int milliseconds)
+	//	{
+	//		Milliseconds = milliseconds;
+	//	}
+	//}
+
+	//public class StopWatch
+	//{
+	//	public static Dictionary<string, StopWatchObject> Collection { get; } =
+	//		new Dictionary<string, StopWatchObject>()
+	//		{
+	//			{ "FileGetter.Run", new StopWatchObject(100) }
+	//		};
+
+	//	public static void Start(string key)
+	//	{
+	//	}
+
+	//	public static void Stop(string key)
+	//	{
+	//	}
+
+	//	public static void PrintCollection(object milliseconds)
+	//	{
+	//	}
+	//}
 	public class EncodingDetector
 	{
 

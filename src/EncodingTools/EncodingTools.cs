@@ -6,7 +6,7 @@ using System.IO;
 using System.Threading;
 using FindAndReplace;
 
-namespace href.Utils
+namespace FindAndReplace
 {
 	public static class EncodingTools
 	{

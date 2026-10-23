@@ -189,19 +189,27 @@ namespace FindAndReplace.App
 
 					if (findResultItem.IsSuccess && findResultItem.NumMatches > 0) //Account for errors and IncludeFilesWithoutMatches
 					{
-						string fileContent = string.Empty;
-
-						using (var sr = new StreamReader(findResultItem.FilePath, findResultItem.FileEncoding))
+						if (Path.GetExtension(findResultItem.FilePath).Equals(".pdf", StringComparison.OrdinalIgnoreCase))
 						{
-							fileContent = sr.ReadToEnd();
+							string lineSeparator = ("\r\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\r\n");
+							gvResults.Rows[currentRow].Cells[columnIndex].Value = string.Join(lineSeparator, findResultItem.Matches.Select(x => x.PreviewText));
 						}
+						else
+						{
+							string fileContent = string.Empty;
+
+							using (var sr = new StreamReader(findResultItem.FilePath, findResultItem.FileEncoding))
+							{
+								fileContent = sr.ReadToEnd();
+							}
 
 
-						List<MatchPreviewLineNumber> lineNumbers = Utils.GetLineNumbersForMatchesPreview(fileContent,
-						                                                                                 findResultItem.Matches);
-						gvResults.Rows[currentRow].Cells[columnIndex].Value = GenerateMatchesPreviewText(fileContent,
-						                                                                                 lineNumbers.Select(
-							                                                                                 ln => ln.LineNumber).ToList());
+							List<MatchPreviewLineNumber> lineNumbers = Utils.GetLineNumbersForMatchesPreview(fileContent,
+																											 findResultItem.Matches);
+							gvResults.Rows[currentRow].Cells[columnIndex].Value = GenerateMatchesPreviewText(fileContent,
+																											 lineNumbers.Select(
+																												 ln => ln.LineNumber).ToList());
+						}
 					}
 
 					//Grid likes to select the first row for some reason

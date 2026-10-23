@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FindAndReplace.App</RootNamespace>
     <AssemblyName>fnr</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -143,13 +143,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FindAndReplace\FindAndReplace.csproj">
-      <Project>{4E35E2C7-099B-4356-9215-0DC77D156CFA}</Project>
-      <Name>FindAndReplace</Name>
-      <Private>True</Private>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\swap_icon.gif" />
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +150,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\donate2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EncodingTools\EncodingTools.csproj">
+      <Project>{ca19d4de-b232-491a-92bf-7bf3a2758694}</Project>
+      <Name>EncodingTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FindAndReplace\FindAndReplace.csproj">
+      <Project>{4e35e2c7-099b-4356-9215-0dc77d156cfa}</Project>
+      <Name>FindAndReplace</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

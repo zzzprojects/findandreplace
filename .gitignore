@@ -10,3 +10,5 @@ Z.Lab/
 _ReSharper.*
 *.ReSharper.user
 *.resharper.user
+config.bat
+node_modules

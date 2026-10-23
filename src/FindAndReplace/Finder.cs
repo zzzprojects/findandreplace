@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using UglyToad.PdfPig;
 
 namespace FindAndReplace
 {
@@ -191,56 +192,170 @@ namespace FindAndReplace
 
 			StopWatch.Stop("ReadSampleFileContent");
 
-
-			if (!SkipBinaryFileDetection)
+			Encoding encoding = Encoding.UTF8; 
+			RegexOptions regexOptions = Utils.GetRegExOptions(IsCaseSensitive);
+			if (Path.GetExtension(filePath).Equals(".pdf", StringComparison.OrdinalIgnoreCase))
 			{
-				StopWatch.Start("IsBinaryFile");
-
-				if (resultItem.IsSuccess)
+				using (var pdf = PdfDocument.Open(filePath))
 				{
-					// check for /0/0/0/0
-					if (Utils.IsBinaryFile(sampleBytes))
-					{
-						StopWatch.Stop("IsBinaryFile");
+					List<LiteMatch> results = new List<LiteMatch>();
 
-						resultItem.IsSuccess = false;
-						resultItem.IsBinaryFile = true;
-						return resultItem;
+					foreach (var page in pdf.GetPages())
+					{
+						// Rebuild text with \r\n line breaks by detecting Y changes
+						var words = page.GetWords()
+							.OrderByDescending(w => w.BoundingBox.Bottom)
+							.ThenBy(w => w.BoundingBox.Left)
+							.ToList();
+
+						var sb = new StringBuilder();
+						double? currentY = null;
+						bool firstInLine = true;
+						const double yTolerance = 2.0; // tweak if needed
+
+						foreach (var w in words)
+						{
+							var y = w.BoundingBox.Bottom;
+
+							if (currentY == null)
+							{
+								currentY = y;
+								firstInLine = true;
+							}
+							else if (Math.Abs(y - currentY.Value) > yTolerance)
+							{
+								sb.Append("\r\n");
+								currentY = y;
+								firstInLine = true;
+							}
+
+							if (!firstInLine) sb.Append(' ');
+							sb.Append(w.Text);
+							firstInLine = false;
+						}
+
+						string text = sb.ToString();
+						string[] lines = text.Split(new[] { "\r\n" }, StringSplitOptions.None);
+
+						// Compute absolute start index of each line in the rebuilt 'text'
+						int[] lineStarts = new int[lines.Length];
+						int cursor = 0;
+						for (int i = 0; i < lines.Length; i++)
+						{
+							lineStarts[i] = cursor;
+							cursor += lines[i].Length + 2; // +2 for \r\n that Split removed
+						}
+
+						for (int lineIndex = 0; lineIndex < lines.Length; lineIndex++)
+						{
+							string line = lines[lineIndex];
+
+							if (FindTextHasRegEx)
+							{
+								foreach (Match m in Regex.Matches(line, FindText, regexOptions))
+								{
+									int start = lineStarts[lineIndex] + m.Index;
+
+									results.Add(new LiteMatch
+									{
+										Index = start,
+										Length = m.Length,
+										LineNumber = lineIndex + 1,
+										PreviewText = string.Join("\r\n", new[]
+										{
+											lineIndex > 1 ? lines[lineIndex - 2] : string.Empty,
+											lineIndex > 0 ? lines[lineIndex - 1] : string.Empty,
+											line,
+											lineIndex < lines.Length - 1 ? lines[lineIndex + 1] : string.Empty,
+											lineIndex < lines.Length - 2 ? lines[lineIndex + 2] : string.Empty
+										})
+									});
+								}
+							}
+							else
+							{
+								int idx = 0;
+								while ((idx = line.IndexOf(FindText, idx, StringComparison.OrdinalIgnoreCase)) >= 0)
+								{
+									int start = lineStarts[lineIndex] + idx;
+
+									results.Add(new LiteMatch
+									{
+										Index = start,
+										Length = FindText.Length,
+										LineNumber = lineIndex + 1,
+										PreviewText = string.Join("\r\n", new[]
+										{
+											lineIndex > 1 ? lines[lineIndex - 2] : string.Empty,
+											lineIndex > 0 ? lines[lineIndex - 1] : string.Empty,
+											line,
+											lineIndex < lines.Length - 1 ? lines[lineIndex + 1] : string.Empty,
+											lineIndex < lines.Length - 2 ? lines[lineIndex + 2] : string.Empty
+										})
+									});
+
+									idx += FindText.Length;
+								}
+							}
+						}
 					}
+
+					resultItem.FileEncoding = encoding;
+					resultItem.Matches = results;
+					resultItem.NumMatches = resultItem.Matches.Count;
+				}
+			}
+			else
+			{
+				if (!SkipBinaryFileDetection)
+				{
+					StopWatch.Start("IsBinaryFile");
+
+					if (resultItem.IsSuccess)
+					{
+						// check for /0/0/0/0
+						if (Utils.IsBinaryFile(sampleBytes))
+						{
+							StopWatch.Stop("IsBinaryFile");
+
+							resultItem.IsSuccess = false;
+							resultItem.IsBinaryFile = true;
+							return resultItem;
+						}
+					}
+
+					StopWatch.Stop("IsBinaryFile");
 				}
 
-				StopWatch.Stop("IsBinaryFile");
+				encoding = DetectEncoding(sampleBytes);
+				if (encoding == null)
+				{
+					resultItem.IsSuccess = false;
+					resultItem.FailedToOpen = true;
+					resultItem.ErrorMessage = "Could not detect file encoding.";
+					return resultItem;
+				}
+
+				resultItem.FileEncoding = encoding;
+
+				StopWatch.Start("ReadFullFileContent");
+
+				string fileContent;
+				using (var sr = new StreamReader(filePath, encoding))
+				{
+					fileContent = sr.ReadToEnd();
+				}
+
+				StopWatch.Stop("ReadFullFileContent");
+
+				StopWatch.Start("FindMatches");
+
+				resultItem.Matches = Utils.FindMatches(fileContent, FindText, FindTextHasRegEx, UseEscapeChars, regexOptions);
+
+				StopWatch.Stop("FindMatches");
+
+				resultItem.NumMatches = resultItem.Matches.Count;
 			}
-
-			Encoding encoding = DetectEncoding(sampleBytes);
-			if (encoding == null)
-			{
-				resultItem.IsSuccess = false;
-				resultItem.FailedToOpen = true;
-				resultItem.ErrorMessage = "Could not detect file encoding.";
-				return resultItem;
-			}
-
-			resultItem.FileEncoding = encoding;
-
-			StopWatch.Start("ReadFullFileContent");
-
-			string fileContent;
-			using (var sr = new StreamReader(filePath, encoding))
-			{
-				fileContent = sr.ReadToEnd();
-			}
-
-			StopWatch.Stop("ReadFullFileContent");
-
-			StopWatch.Start("FindMatches");
-			RegexOptions regexOptions = Utils.GetRegExOptions(IsCaseSensitive);
-
-			resultItem.Matches = Utils.FindMatches(fileContent, FindText, FindTextHasRegEx, UseEscapeChars, regexOptions);
-
-			StopWatch.Stop("FindMatches");
-
-			resultItem.NumMatches = resultItem.Matches.Count;
 			return resultItem;
 		}
 
